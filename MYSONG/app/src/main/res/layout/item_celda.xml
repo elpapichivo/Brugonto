@@ -3,14 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="#ea585656"
-    android:orientation="horizontal">
+    android:background="#eadfd8ae"
+    android:orientation="horizontal"
+   >
 
     <ImageView
         android:id="@+id/celda_lista_imagen"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="10dp"
+        android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 
     <LinearLayout
@@ -27,14 +29,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="30dp"
-            android:textColor="#9159d2"/>
+            android:textStyle="bold"
+            android:textColor="#355976"/>
 
         <TextView
             android:id="@+id/celda_lista_genero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="#e48a53c9"
+            android:textColor="#e42a4d76"
             android:textStyle="bold"/>
 
     </LinearLayout>

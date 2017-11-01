@@ -29,7 +29,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     }
 
     @Override
-    public Adaptador.ArtistaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ArtistaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Busco el inflador
         LayoutInflater inflater = LayoutInflater.from(context);
         //Inflo la vista de la celda que cree para mostrar las peliculas
@@ -44,7 +44,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(Adaptador.ArtistaViewHolder holder, int position) {
+    public void onBindViewHolder(ArtistaViewHolder holder, int position) {
         //Busco la pelicula en la posicion correspondiente
         final Artista artista = listaDeArtistas.get(position);
         //Le paso al viewHolder la pelicula
@@ -69,18 +69,24 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         //Atributos: componentes del layout de la celda
         private ImageView imageViewPelicula;
         private LinearLayout layout;
+        private TextView textViewNombre;
+        private TextView textViewGenero;
 
         //Constructor
         public ArtistaViewHolder(View itemView) {
             super(itemView);
             //Busco los componentes correspondientes en la vista de la celda
             imageViewPelicula = (ImageView) itemView.findViewById(R.id.celda_lista_imagen);
+            textViewNombre = (TextView) itemView.findViewById(R.id.celda_lista_nombre_artista);
+            textViewGenero = (TextView) itemView.findViewById(R.id.celda_lista_genero);
 
 
         }
 
         public void bindArtista(Artista artista){
             imageViewPelicula.setImageResource(artista.getFoto());
+            textViewNombre.setText(artista.getNombreArtista());
+            textViewGenero.setText(artista.getGenero());
 
 
     }

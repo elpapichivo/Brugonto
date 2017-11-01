@@ -31,13 +31,12 @@ public class FragmentLista extends Fragment {
         listaDeArtistas.add(new Artista("The Rolling Stone","no hay","rock",R.drawable.the_rolling_stones));
         listaDeArtistas.add(new Artista("The Who","no hay","rock",R.drawable.the_who));
 
-        //Busco el recyclerView en el layout
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPeliculas);
-        //Seteo al recycler el LayoutManager
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        //Instancio un adaptador
+
         Adaptador adapterRecycler = new Adaptador(getContext(), listaDeArtistas);
-        //Seteo al recycler el adapter
+
         recyclerView.setAdapter(adapterRecycler);
 
         return view;
