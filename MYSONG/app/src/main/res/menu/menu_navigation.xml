@@ -9,7 +9,10 @@
     <item android:title="canciones"
         android:id="@+id/iconoCancion"
         android:icon="@drawable/ic_audiotrack_black_24dp"/>
-
+    <item
+        android:title="favoritos"
+        android:icon="@drawable/ic_insert_emoticon_black_24dp"
+        android:id="@+id/favoritos"/>
 
 
     <!-- Submenu -->
@@ -20,6 +23,7 @@
             <item android:title="configuracion"
                 android:id="@+id/itemConfiguracion"
                 android:icon="@drawable/ic_build_black_24dp"/>
+
         </menu>
     </item>
 

@@ -13,7 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador{
+public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                     //Le paso al metodo que pone los fragment un nuevo fragment
                     Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
                     break;
+                case R.id.favoritos:
+                    placeFragment(new FragmentFavoritos());
+                    break;
                 default:
                     break;
             }
@@ -77,11 +80,14 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
     private void placeFragment(Fragment fragment){
 
-        FragmentLista fragmentListView = new FragmentLista();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.drawerLayoutMain, fragmentListView);
+        transaction.replace(R.id.drawerLayoutMain, fragment);
         transaction.commit();
     }
 
+    @Override
+    public void enviarinfo(CancionFavorita cancionFavorita) {
+        
+    }
 }
