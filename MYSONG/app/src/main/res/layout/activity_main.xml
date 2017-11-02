@@ -10,32 +10,14 @@
 
     tools:openDrawer="start">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/activity2Lay"
-    android:orientation="vertical"
-    android:background="#a6000000"
-    tools:context="com.example.yanina.mysong.DetalleActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MY SONG"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:layout_margin="30dp"
-        android:textColor="#f2f2f7"/>
+<FrameLayout
+    android:id="@+id/contenedorFrame"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icono_musica"/>
-
-
-</LinearLayout>
+</FrameLayout>
 
 <android.support.design.widget.NavigationView
 android:layout_width="wrap_content"

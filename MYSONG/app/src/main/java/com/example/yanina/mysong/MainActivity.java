@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        placeFragment(new InicioFragment());
 
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayoutMain);
         navigationView = (NavigationView) findViewById(R.id.navigationViewMain);
@@ -84,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.drawerLayoutMain, fragment);
+        transaction.replace(R.id.contenedorFrame, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 
