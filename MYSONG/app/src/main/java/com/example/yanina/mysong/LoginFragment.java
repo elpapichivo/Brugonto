@@ -36,6 +36,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Boton Ingresar (En construccion)", Toast.LENGTH_SHORT).show();
+                contrasenia();
             }
         });
 
@@ -50,7 +51,7 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-    public void contrasenia (View botonIngresar){
+    public void contrasenia (){
 
         TextInputLayout editTextContrasenia;
         editTextContrasenia = (TextInputLayout) view.findViewById(R.id.TextImputContrasenia);
