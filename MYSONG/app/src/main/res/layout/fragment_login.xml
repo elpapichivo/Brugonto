@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.yanina.mysong.LoginFragment">
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inicio de sesión"
+        android:padding="20dp"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TextImputMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        >
+
+        <EditText
+            android:id="@+id/EditTextMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-Mail"
+            android:inputType="textEmailSubject"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TextImputContrasenia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        >
+
+        <EditText
+            android:id="@+id/EditTextContrasenia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/ButtonIngresar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Ingresar"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:onClick="ingresar"
+            />
+
+        <Button
+            android:id="@+id/ButtonRegistrarse"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:onClick="registrarse"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

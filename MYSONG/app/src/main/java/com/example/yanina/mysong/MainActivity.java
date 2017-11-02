@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                 case R.id.favoritos:
                     placeFragment(new FragmentFavoritos());
                     break;
+                case R.id.login:
+                    placeFragment(new LoginFragment());
                 default:
                     break;
             }
