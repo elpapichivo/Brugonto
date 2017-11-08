@@ -6,7 +6,7 @@
     android:id="@+id/activity2Lay"
     android:orientation="vertical"
     android:background="#000000"
-    tools:context="com.example.yanina.mysong.DetalleActivity">
+    tools:context="com.example.yanina.mysong.View.DetalleActivity">
 
     <TextView
         android:layout_width="match_parent"

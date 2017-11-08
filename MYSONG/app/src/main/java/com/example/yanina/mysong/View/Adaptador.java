@@ -1,4 +1,4 @@
-package com.example.yanina.mysong;
+package com.example.yanina.mysong.View;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,10 +26,15 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     private List<Artista> listaDeArtistas;
     private Comunicador comunicadorClick;
 
-    public Adaptador(Context context, List<Artista> listaDeArtistas) {
+    public Adaptador(Context context) {
         this.context = context;
-        this.listaDeArtistas = listaDeArtistas;
+        this.listaDeArtistas = new ArrayList<>();
         comunicadorClick = (Comunicador) context;
+    }
+
+    public void setListaDeArtistas(List<Artista> listaDeArtistas) {
+        this.listaDeArtistas = listaDeArtistas;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -44,7 +53,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(ArtistaViewHolder holder, int position) {
+    public void onBindViewHolder(ArtistaViewHolder holder, final int position) {
         //Busco la pelicula en la posicion correspondiente
         final Artista artista = listaDeArtistas.get(position);
         //Le paso al viewHolder la pelicula
@@ -52,7 +61,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comunicadorClick.enviarInfo(artista);
+                comunicadorClick.enviarInfo(position);
             }
         });
 
@@ -95,7 +104,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     }
     public interface Comunicador{
         //Creo un método para enviar la informacion
-        public void enviarInfo(Artista artista);
+        public void enviarInfo(Integer position);
     }
 
 }

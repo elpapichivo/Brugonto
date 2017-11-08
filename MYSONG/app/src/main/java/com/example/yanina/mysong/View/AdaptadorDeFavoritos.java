@@ -1,4 +1,4 @@
-package com.example.yanina.mysong;
+package com.example.yanina.mysong.View;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.yanina.mysong.Model.CancionFavorita;
+import com.example.yanina.mysong.R;
 
 import java.util.List;
 

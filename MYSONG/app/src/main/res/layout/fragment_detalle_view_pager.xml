@@ -1,0 +1,46 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ede7e7"
+    tools:context="com.example.yanina.mysong.View.DetalleFragment">
+
+
+
+
+<ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:id="@+id/imageView"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#282c58"
+        android:padding="10dp"
+        android:layout_gravity= "center_horizontal"
+        android:id="@+id/textViewNombre"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewNombre"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:id="@+id/textViewArtista"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewArtista"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:id="@+id/textViewAlbum"/>
+
+</RelativeLayout>

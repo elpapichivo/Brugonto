@@ -1,4 +1,4 @@
-package com.example.yanina.mysong;
+package com.example.yanina.mysong.View;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,9 +9,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.Model.CancionFavorita;
+import com.example.yanina.mysong.R;
 
 public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
 
@@ -70,13 +73,10 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
 
     @Override
-    public void enviarInfo(Artista artista) {
+    public void enviarInfo(Integer position) {
         Intent intent = new Intent(this, DetalleActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putInt(DetalleFragment.CLAVE_IMAGEN, artista.getFoto());
-        bundle.putString(DetalleFragment.CLAVE_NOMBRE_ARTISTA, artista.getNombreArtista());
-        bundle.putString(DetalleFragment.CLAVE_NOMBRE_CANCION, artista.getNombreCancion());
-        bundle.putString(DetalleFragment.CLAVE_GENERO, artista.getGenero());
+        bundle.putInt(FragmentDetalleViewPager.CLAVE_POSITION, position);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -94,4 +94,5 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
     public void enviarinfo(CancionFavorita cancionFavorita) {
         
     }
+
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fafafa"
-    tools:context="com.example.yanina.mysong.LoginFragment">
+    tools:context="com.example.yanina.mysong.View.LoginFragment">
 
     <TextView
         android:id="@+id/TextView"

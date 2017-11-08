@@ -1,4 +1,4 @@
-package com.example.yanina.mysong;
+package com.example.yanina.mysong.Model;
 
 /**
  * Created by yanina on 18/10/2017.
