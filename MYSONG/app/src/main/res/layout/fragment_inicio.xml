@@ -11,10 +11,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MY SONG"
+        android:text="BruGonTo"
         android:gravity="center"
         android:textSize="50sp"
-        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="#f2f2f7"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        android:gravity="center"
+        android:textSize="40sp"
+
+        android:textStyle="italic"
         android:textColor="#f2f2f7"/>
 
 
