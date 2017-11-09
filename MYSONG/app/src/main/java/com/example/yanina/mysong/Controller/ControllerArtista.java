@@ -11,14 +11,16 @@ import java.util.List;
  */
 
 public class ControllerArtista {
-    public void obtenerArtista(final ResultListener<List<Artista>>  listResultListener){
-
-        DaoArtistas daoArtistas = new DaoArtistas();
-        daoArtistas.obtenerArtista(new ResultListener<List<Artista>>() {
+    public void obtenerArtista(final ResultListener<List<Artista>> listResultListener){
+        ResultListener <List<Artista>>listaDelController=new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
                 listResultListener.finish(resultado);
             }
-        });
+        };
+        DaoArtistas daoArtistas=new DaoArtistas();
+        daoArtistas.obtenerArtista(listaDelController);
+
+
     }
 }
