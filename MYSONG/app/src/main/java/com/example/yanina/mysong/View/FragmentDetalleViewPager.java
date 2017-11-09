@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.yanina.mysong.Controller.ControllerArtista;
 import com.example.yanina.mysong.Model.Artista;
@@ -33,6 +35,11 @@ public class FragmentDetalleViewPager extends Fragment {
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_detalle, container, false);
+
+
+
+
+
         // Inflate the layout for this fragment
 
 
@@ -47,6 +54,7 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
+
             }
         });
 
@@ -69,7 +77,10 @@ public class FragmentDetalleViewPager extends Fragment {
 
 
 
+
         return view;
     }
+
+
 
 }

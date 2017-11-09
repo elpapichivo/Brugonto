@@ -5,8 +5,10 @@ package com.example.yanina.mysong.View;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.ImageView;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import com.example.yanina.mysong.Model.Artista;
         import com.example.yanina.mysong.R;
@@ -54,6 +56,13 @@ public class DetalleFragment extends Fragment {
         textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
         textViewAlbum.setText(bundle.getString(CLAVE_GENERO));
 
+        Button buttonFavoritos=(Button) view.findViewById(R.id.botonFavoritos);
+        buttonFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "En construccion(favoritos)", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
