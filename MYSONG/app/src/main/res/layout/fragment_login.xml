@@ -3,14 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fafafa"
+    android:background="#edeabe"
+
     tools:context="com.example.yanina.mysong.View.LoginFragment">
+
 
     <TextView
         android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inicio de sesión"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="Registrate para vivir la experiencia completa y acceder a los veneficios de la comunidad"
         android:padding="20dp"
         />
 
