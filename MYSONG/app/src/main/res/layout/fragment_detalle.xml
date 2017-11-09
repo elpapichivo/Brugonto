@@ -4,7 +4,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-    android:background="#ede7e7"
+    android:background="#edeabe"
 tools:context="com.example.yanina.mysong.View.DetalleFragment">
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
