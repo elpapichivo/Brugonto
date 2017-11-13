@@ -20,7 +20,7 @@ public class AdaptadorViewPager extends FragmentPagerAdapter {
         listaDeFragment=new ArrayList<>();
 
         for (Artista artista: listaDeArtista){
-            listaDeFragment.add(DetalleFragment.factory(artista.getFoto(),artista.getNombreArtista(),artista.getNombreCancion(),artista.getGenero()));
+            listaDeFragment.add(DetalleFragment.factory(artista.getFoto(),artista.getNombreArtista(),artista.getNombreCancion(),artista.getId()));
         }
     }
 

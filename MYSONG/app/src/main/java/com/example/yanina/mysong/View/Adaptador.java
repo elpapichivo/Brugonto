@@ -95,16 +95,22 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         public void bindArtista(Artista artista){
             imageViewPelicula.setImageResource(artista.getFoto());
             textViewNombre.setText(artista.getNombreArtista());
-            textViewGenero.setText(artista.getGenero());
+            textViewGenero.setText(artista.getId());
 
 
     }
+
 
 
     }
     public interface Comunicador{
         //Creo un método para enviar la informacion
         public void enviarInfo(Integer position);
+    }
+
+    public void agregarMusica(List<Artista>listaArtistas){
+        listaDeArtistas.addAll(listaArtistas);
+
     }
 
 }

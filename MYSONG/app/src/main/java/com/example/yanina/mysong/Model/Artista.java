@@ -1,36 +1,40 @@
 package com.example.yanina.mysong.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by yanina on 18/10/2017.
  */
 
 public class Artista {
-
+    private Integer id;
+    @SerializedName("name")
     private String nombreArtista;
-    private String nombreCancion;
-    private String genero;
+    @SerializedName("position")
+    private Integer nombreCancion;
+    @SerializedName("picture_small")
     private Integer foto;
 
-    public Artista(String nombreArtista, String nombreCancion, String genero, Integer foto) {
-        this.nombreArtista = nombreArtista;
-        this.nombreCancion = nombreCancion;
-        this.genero = genero;
-        this.foto = foto;
+    public Integer getId() {
+        return id;
     }
 
     public String getNombreArtista() {
         return nombreArtista;
     }
 
-    public String getNombreCancion() {
+    public Integer getNombreCancion() {
         return nombreCancion;
-    }
-
-    public String getGenero() {
-        return genero;
     }
 
     public Integer getFoto() {
         return foto;
+    }
+
+    public Artista(Integer id, String nombreArtista, Integer nombreCancion, Integer foto) {
+        this.id = id;
+        this.nombreArtista = nombreArtista;
+        this.nombreCancion = nombreCancion;
+        this.foto = foto;
     }
 }

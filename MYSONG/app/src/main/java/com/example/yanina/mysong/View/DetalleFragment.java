@@ -23,13 +23,13 @@ public class DetalleFragment extends Fragment {
     public static final String CLAVE_NOMBRE_CANCION="claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA="claveNombreArtista";
     public static final String CLAVE_GENERO="claveGenero";
-    public static DetalleFragment factory(Integer imagen, String artista, String cancion, String genero){
+    public static DetalleFragment factory(Integer imagen, String artista, Integer cancion, Integer id){
         DetalleFragment detalleFragment=new DetalleFragment();
         Bundle bundle=new Bundle();
         bundle.putInt(CLAVE_IMAGEN,imagen);
         bundle.putString(CLAVE_NOMBRE_ARTISTA,artista);
-        bundle.putString(CLAVE_NOMBRE_CANCION,cancion);
-        bundle.putString(CLAVE_GENERO,genero);
+        bundle.putInt(CLAVE_NOMBRE_CANCION,cancion);
+        bundle.putInt(CLAVE_GENERO,id);
         detalleFragment.setArguments(bundle);
         return detalleFragment;
     }

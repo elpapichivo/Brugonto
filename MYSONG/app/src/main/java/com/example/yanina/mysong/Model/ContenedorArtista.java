@@ -1,5 +1,7 @@
 package com.example.yanina.mysong.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  */
 
 public class ContenedorArtista {
+    @SerializedName("data")
     private List<Artista>listaDeArtista;
 
     public List<Artista>getListaDeArtista(){
