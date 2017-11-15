@@ -24,16 +24,12 @@ public class DetalleFragment extends Fragment {
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
     public static final String CLAVE_GENERO = "claveGenero";
 
-    public static DetalleFragment factory(Integer imagen, String artista, Integer cancion, Integer id) {
+    public static DetalleFragment factory(String imagen, String artista, Integer cancion, Integer id) {
 
-
-
-        public static DetalleFragment factory (Integer imagen, String artista, String
-        cancion, String genero){
 
             DetalleFragment detalleFragment = new DetalleFragment();
             Bundle bundle = new Bundle();
-            bundle.putInt(CLAVE_IMAGEN, imagen);
+            bundle.putString(CLAVE_IMAGEN, imagen);
             bundle.putString(CLAVE_NOMBRE_ARTISTA, artista);
             bundle.putInt(CLAVE_NOMBRE_CANCION, cancion);
             bundle.putInt(CLAVE_GENERO, id);
@@ -55,22 +51,18 @@ public class DetalleFragment extends Fragment {
             //Recibir bundle
             Bundle bundle = getArguments();
 
-            imageView.setImageResource(bundle.getInt(CLAVE_IMAGEN));
+
+
+
+            //imageView.setImageResource(bundle.getString(CLAVE_IMAGEN));
             textViewNombre.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
             textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
             textViewAlbum.setText(bundle.getString(CLAVE_GENERO));
 
-            Button buttonFavoritos = (Button) view.findViewById(R.id.botonFavoritos);
-            buttonFavoritos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getContext(), "En construccion(favoritos)", Toast.LENGTH_SHORT).show();
-                }
-            });
+
 
 
             // Inflate the layout for this fragment
             return view;
         }
     }
-}

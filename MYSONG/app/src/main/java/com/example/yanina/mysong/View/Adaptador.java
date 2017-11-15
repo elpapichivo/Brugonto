@@ -93,9 +93,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         }
 
         public void bindArtista(Artista artista){
-            imageViewPelicula.setImageResource(artista.getFoto());
+            //imageViewPelicula.setImageResource(artista.getFoto());
             textViewNombre.setText(artista.getNombreArtista());
-            textViewGenero.setText(artista.getId());
+            textViewGenero.setText(artista.getId().toString());
 
 
     }

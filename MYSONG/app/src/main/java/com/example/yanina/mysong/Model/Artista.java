@@ -13,7 +13,10 @@ public class Artista {
     @SerializedName("position")
     private Integer nombreCancion;
     @SerializedName("picture_small")
-    private Integer foto;
+    private String foto;
+
+
+
 
     public Integer getId() {
         return id;
@@ -27,11 +30,11 @@ public class Artista {
         return nombreCancion;
     }
 
-    public Integer getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public Artista(Integer id, String nombreArtista, Integer nombreCancion, Integer foto) {
+    public Artista(Integer id, String nombreArtista, Integer nombreCancion, String foto) {
         this.id = id;
         this.nombreArtista = nombreArtista;
         this.nombreCancion = nombreCancion;
