@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.yanina.mysong.View.FragmentReproductor">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My PlayList"
+        android:textSize="20dp"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vinilo_nota"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOMBRE ARTISTA"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nombre cancion"
+        android:gravity="center"/>
+
+    <ImageView
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_playlist_add_black_24dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+  >
+
+
+
+
+        <ImageView
+            android:id="@+id/anterior"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:src="@drawable/ic_skip_previous_black_24dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/anterior"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_play_arrow_black_24dp" />
+
+        <ImageView
+            android:id="@+id/siguiente"
+            android:layout_marginLeft="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_skip_next_black_24dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
