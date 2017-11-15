@@ -14,7 +14,6 @@ import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +23,7 @@ public class FragmentLista extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fragment_lista, container, false);
+        View view = inflater.inflate(R.layout.fragment_lista, container, false);
 
         ControllerArtista controllerArtista=new ControllerArtista();
 

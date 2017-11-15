@@ -34,7 +34,7 @@ public class FragmentFavoritos extends Fragment {
         listaDeCancionesFavoritas.add(new CancionFavorita("Shoot to Thrill", "ACDC"));
         listaDeCancionesFavoritas.add(new CancionFavorita("Killpop", "Slipknot"));
 
-        View view=inflater.inflate(R.layout.fragment_fragment_favoritos, container, false);
+        View view=inflater.inflate(R.layout.fragment_favoritos, container, false);
         RecyclerView recyclerView= (RecyclerView)view.findViewById(R.id.favoritosReciclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         AdaptadorDeFavoritos adaptadorDeFavoritos=new AdaptadorDeFavoritos(getContext(),listaDeCancionesFavoritas);
