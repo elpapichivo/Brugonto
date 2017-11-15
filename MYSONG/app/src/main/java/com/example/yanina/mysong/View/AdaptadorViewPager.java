@@ -15,6 +15,9 @@ import java.util.List;
 
 public class AdaptadorViewPager extends FragmentPagerAdapter {
     private List<DetalleFragment>listaDeFragment;
+
+
+
     public AdaptadorViewPager(FragmentManager fm, List<Artista>listaDeArtista) {
         super(fm);
         listaDeFragment=new ArrayList<>();
