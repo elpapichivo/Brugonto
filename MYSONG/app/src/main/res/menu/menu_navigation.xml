@@ -5,14 +5,15 @@
         android:id="@+id/iconoArtista"
         android:icon="@drawable/ic_person_black_24dp"/>
 
-
-    <item android:title="canciones"
-        android:id="@+id/iconoCancion"
-        android:icon="@drawable/ic_audiotrack_black_24dp"/>
     <item
         android:title="favoritos"
         android:icon="@drawable/favorito_24dp"
         android:id="@+id/favoritos"/>
+
+    <item
+        android:title="Reproduccion"
+        android:icon="@drawable/ic_play_circle_filled_black_24dp"
+        android:id="@+id/iconoReproduccion"/>
 
     <item
         android:title="login"
