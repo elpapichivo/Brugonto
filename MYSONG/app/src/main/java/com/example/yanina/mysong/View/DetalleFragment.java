@@ -1,5 +1,6 @@
 package com.example.yanina.mysong.View;
 
+        import android.content.Context;
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
         import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ package com.example.yanina.mysong.View;
         import android.widget.TextView;
         import android.widget.Toast;
 
+        import com.bumptech.glide.Glide;
+        import com.bumptech.glide.request.RequestOptions;
         import com.example.yanina.mysong.Model.Artista;
         import com.example.yanina.mysong.R;
 
@@ -19,6 +22,7 @@ package com.example.yanina.mysong.View;
 public class DetalleFragment extends Fragment {
     private List<Artista> listaDeArtistas;
 
+    private Artista artista;
     public static final String CLAVE_IMAGEN = "claveImagen";
     public static final String CLAVE_NOMBRE_CANCION = "claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
@@ -58,6 +62,9 @@ public class DetalleFragment extends Fragment {
             textViewNombre.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
             textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
             textViewAlbum.setText(bundle.getString(CLAVE_GENERO));
+
+            RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
+            Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
 
 
 

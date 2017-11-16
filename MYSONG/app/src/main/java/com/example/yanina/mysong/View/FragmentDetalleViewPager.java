@@ -22,7 +22,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentDetalleViewPager extends Fragment {
-
+    private List<Artista>artistaList;
     public static final String CLAVE_POSITION="clavePosition";
 
     public FragmentDetalleViewPager() {
@@ -35,9 +35,6 @@ public class FragmentDetalleViewPager extends Fragment {
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_detalle, container, false);
-
-
-
 
 
         // Inflate the layout for this fragment
@@ -55,28 +52,9 @@ public class FragmentDetalleViewPager extends Fragment {
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
 
+
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return view;
     }

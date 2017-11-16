@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 
@@ -22,6 +24,7 @@ import java.util.List;
 public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder> {
 
 
+   // private String url="https://api.deezer.com/chart/0/artists";
     private Context context;
     private List<Artista> listaDeArtistas;
     private Comunicador comunicadorClick;
@@ -57,7 +60,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         //Busco la pelicula en la posicion correspondiente
         final Artista artista = listaDeArtistas.get(position);
         //Le paso al viewHolder la pelicula
-        holder.bindArtista(artista);
+        holder.bindArtista(artista, context);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,10 +95,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
 
         }
 
-        public void bindArtista(Artista artista){
+        public void bindArtista(Artista artista, Context context){
             //imageViewPelicula.setImageResource(artista.getFoto());
             textViewNombre.setText(artista.getNombreArtista());
             textViewGenero.setText(artista.getId().toString());
+
+            RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
+            Glide.with(context).load(artista.getFoto()).apply(requestOptions).into(imageViewPelicula);
 
 
     }
