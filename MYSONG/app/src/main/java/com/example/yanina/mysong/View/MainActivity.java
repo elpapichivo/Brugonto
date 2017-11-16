@@ -12,8 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.yanina.mysong.Model.Artista;
-import com.example.yanina.mysong.Model.CancionFavorita;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 
 public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
@@ -91,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
     }
 
     @Override
-    public void enviarinfo(CancionFavorita cancionFavorita) {
+    public void enviarinfo(Cancion cancion) {
         
     }
 

@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.yanina.mysong.Model.CancionFavorita;
+import com.example.yanina.mysong.Controller.ControllerCancion;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
+import com.example.yanina.mysong.Utils.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,21 +25,28 @@ public class FragmentFavoritos extends Fragment {
 
 
 
-
+    AdaptadorDeFavoritos adaptadorDeFavoritos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        List<CancionFavorita>listaDeCancionesFavoritas=new ArrayList<>();
-        listaDeCancionesFavoritas.add(new CancionFavorita("Bailalo","QCY"));
-        listaDeCancionesFavoritas.add(new CancionFavorita("Metafisica","El Bordo"));
-        listaDeCancionesFavoritas.add(new CancionFavorita("Shoot to Thrill", "ACDC"));
-        listaDeCancionesFavoritas.add(new CancionFavorita("Killpop", "Slipknot"));
+        ControllerCancion controllerCancion=new ControllerCancion();
+
 
         View view=inflater.inflate(R.layout.fragment_favoritos, container, false);
         RecyclerView recyclerView= (RecyclerView)view.findViewById(R.id.favoritosReciclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        AdaptadorDeFavoritos adaptadorDeFavoritos=new AdaptadorDeFavoritos(getContext(),listaDeCancionesFavoritas);
+        adaptadorDeFavoritos = new AdaptadorDeFavoritos(getContext());
+        controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {
+            @Override
+            public void finish(List<Cancion> resultado) {
+                adaptadorDeFavoritos.agregarCancion(resultado);
+                adaptadorDeFavoritos.notifyDataSetChanged();
+            }
+        });
+
+
+
         recyclerView.setAdapter(adaptadorDeFavoritos);
 
 
