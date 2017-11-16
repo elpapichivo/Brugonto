@@ -13,6 +13,7 @@ import com.example.yanina.mysong.Controller.ControllerCancion;
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
+import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
 
 import java.util.ArrayList;
 import java.util.List;
