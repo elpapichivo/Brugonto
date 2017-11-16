@@ -12,7 +12,7 @@ public class Artista {
     private String nombreArtista;
     @SerializedName("position")
     private Integer nombreCancion;
-    @SerializedName("picture_small")
+    @SerializedName("picture_big")
     private String foto;
 
 
