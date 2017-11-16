@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
+import com.example.yanina.mysong.View.Adaptadores.Adaptador;
+import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
 
 public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                     break;
                 case R.id.iconoReproduccion:
                     //Le paso al metodo que pone los fragment un nuevo fragment
-                    placeFragment(new FragmentReproductor());
+                    placeFragment(new FragmentContenedorReproduccion());
                     break;
                 case R.id.itemConfiguracion:
                     //Le paso al metodo que pone los fragment un nuevo fragment

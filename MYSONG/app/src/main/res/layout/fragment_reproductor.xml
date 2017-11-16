@@ -9,7 +9,7 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My PlayList"
+        android:text="Favoritos"
         android:textSize="20dp"
         android:gravity="center"
         />
@@ -18,20 +18,23 @@
         android:layout_gravity="center"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/vinilo_nota"/>
+        android:src="@drawable/vinilo_nota"
+        android:id="@+id/reproductorImagen"/>
 
     <TextView
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="NOMBRE ARTISTA"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:id="@+id/reproductorNombreArtista"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="nombre cancion"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:id="@+id/reproductorNombreCancion"/>
 
     <ImageView
 

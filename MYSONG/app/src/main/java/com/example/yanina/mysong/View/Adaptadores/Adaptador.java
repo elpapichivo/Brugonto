@@ -1,4 +1,4 @@
-package com.example.yanina.mysong.View;
+package com.example.yanina.mysong.View.Adaptadores;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

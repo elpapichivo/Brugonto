@@ -7,13 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.yanina.mysong.Controller.ControllerArtista;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
+import com.example.yanina.mysong.View.Adaptadores.AdaptadorViewPager;
 
 import java.util.List;
 
@@ -25,9 +24,6 @@ public class FragmentDetalleViewPager extends Fragment {
     private List<Artista>artistaList;
     public static final String CLAVE_POSITION="clavePosition";
 
-    public FragmentDetalleViewPager() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -37,10 +33,11 @@ public class FragmentDetalleViewPager extends Fragment {
         View view=inflater.inflate(R.layout.fragment_detalle, container, false);
 
 
-        // Inflate the layout for this fragment
+
 
 
         final ViewPager viewPager=(ViewPager) view.findViewById(R.id.viewPager);
+
         Bundle bundle=getArguments();
         final Integer position= bundle.getInt(CLAVE_POSITION);
 

@@ -1,10 +1,11 @@
-package com.example.yanina.mysong.View;
+package com.example.yanina.mysong.View.Adaptadores;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.View.DetalleFragment;
 
 import java.util.ArrayList;
 import java.util.List;

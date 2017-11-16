@@ -34,7 +34,7 @@ public class Artista {
         return foto;
     }
 
-    public Artista(Integer id, String nombreArtista, Integer nombreCancion, String foto) {
+    public Artista( String nombreArtista, Integer nombreCancion, String foto) {
         this.id = id;
         this.nombreArtista = nombreArtista;
         this.nombreCancion = nombreCancion;
