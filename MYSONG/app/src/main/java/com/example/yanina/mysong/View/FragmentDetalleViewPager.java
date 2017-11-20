@@ -4,6 +4,8 @@ package com.example.yanina.mysong.View;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import com.example.yanina.mysong.Controller.ControllerArtista;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
+import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorViewPager;
 
 import java.util.List;
@@ -23,6 +26,8 @@ import java.util.List;
 public class FragmentDetalleViewPager extends Fragment {
     private List<Artista>artistaList;
     public static final String CLAVE_POSITION="clavePosition";
+
+    AdaptadorAlbum adaptadorAlbum;
 
 
 
@@ -50,11 +55,14 @@ public class FragmentDetalleViewPager extends Fragment {
                 viewPager.setCurrentItem(position);
 
 
+
+
             }
         });
 
         return view;
     }
+
 
 
 

@@ -3,6 +3,8 @@ package com.example.yanina.mysong.View;
         import android.content.Context;
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
+        import android.support.v7.widget.LinearLayoutManager;
+        import android.support.v7.widget.RecyclerView;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -15,6 +17,7 @@ package com.example.yanina.mysong.View;
         import com.bumptech.glide.request.RequestOptions;
         import com.example.yanina.mysong.Model.Artista;
         import com.example.yanina.mysong.R;
+        import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
 
         import java.util.List;
 
@@ -27,6 +30,8 @@ public class DetalleFragment extends Fragment {
     public static final String CLAVE_NOMBRE_CANCION = "claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
     public static final String CLAVE_GENERO = "claveGenero";
+
+    AdaptadorAlbum adaptadorAlbum;
 
     public static DetalleFragment factory(String imagen, String artista, Integer cancion, Integer id) {
 
@@ -45,6 +50,11 @@ public class DetalleFragment extends Fragment {
         public View onCreateView (LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState){
             View view = inflater.inflate(R.layout.fragment_detalle_view_pager, container, false);
+
+            RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.recyclerAlbum);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+            adaptadorAlbum= new AdaptadorAlbum(getContext());
+            recyclerView.setAdapter(adaptadorAlbum);
 
 
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);

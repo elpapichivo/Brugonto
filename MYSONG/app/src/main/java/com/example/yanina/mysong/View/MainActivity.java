@@ -93,7 +93,8 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
     @Override
     public void enviarinfo(Cancion cancion) {
-        
-    }
 
+
+
+}
 }
