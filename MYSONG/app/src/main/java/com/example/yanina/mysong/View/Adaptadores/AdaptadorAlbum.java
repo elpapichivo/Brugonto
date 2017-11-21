@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.yanina.mysong.Model.Album;
+import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 
 import java.util.ArrayList;
@@ -51,6 +52,9 @@ public class AdaptadorAlbum extends RecyclerView.Adapter<AdaptadorAlbum.ViewHold
     public int getItemCount() {
         return listaDeAlbum.size();
     }
+
+
+
     public class ViewHolderAlbum extends RecyclerView.ViewHolder {
         private ImageView imagenAlbum;
         private TextView nombreAlbum;
@@ -74,6 +78,9 @@ public class AdaptadorAlbum extends RecyclerView.Adapter<AdaptadorAlbum.ViewHold
 
     public interface ComunicadorAlbumes{
         public void enviarIInfo(Album album);
+    }
+    public void agregarAlbum(List<Album>listaDeAlbumes){
+        listaDeAlbum.addAll(listaDeAlbumes);
     }
     }
 

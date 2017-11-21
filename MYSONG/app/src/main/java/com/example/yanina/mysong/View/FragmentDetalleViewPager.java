@@ -46,6 +46,8 @@ public class FragmentDetalleViewPager extends Fragment {
         Bundle bundle=getArguments();
         final Integer position= bundle.getInt(CLAVE_POSITION);
 
+
+
         ControllerArtista controllerArtista=new ControllerArtista();
         controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
             @Override
@@ -53,6 +55,9 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
+                adaptadorAlbum.agregarAlbum(resultado);
+                adaptadorViewPager.notifyDataSetChanged();
+
 
 
 

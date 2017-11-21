@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.example.yanina.mysong.Model.Album;
 import com.example.yanina.mysong.Model.ContenedorAlbum;
 import com.example.yanina.mysong.Utils.DAOException;
+import com.example.yanina.mysong.Utils.DeezerHelper;
 import com.example.yanina.mysong.Utils.HTTPConnectionManager;
 import com.example.yanina.mysong.Utils.ResultListener;
 import com.google.gson.Gson;
@@ -18,7 +19,8 @@ import java.util.List;
 
 public class DaoAlbum {
     public void obtenerArtista(ResultListener<List<Album>> listaDelController){
-
+        TareaAsincronaAlbum tareaAsincronaAlbum=new TareaAsincronaAlbum(listaDelController);
+        tareaAsincronaAlbum.execute(DeezerHelper.chartAlbumsPorGenero(0));
     }
 
     public class TareaAsincronaAlbum extends AsyncTask<String, Void,List<Album>> {
