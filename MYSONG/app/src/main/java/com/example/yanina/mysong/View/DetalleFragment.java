@@ -52,7 +52,7 @@ public class DetalleFragment extends Fragment {
             View view = inflater.inflate(R.layout.fragment_detalle_view_pager, container, false);
 
             RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.recyclerAlbum);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
             adaptadorAlbum= new AdaptadorAlbum(getContext());
             recyclerView.setAdapter(adaptadorAlbum);
 
