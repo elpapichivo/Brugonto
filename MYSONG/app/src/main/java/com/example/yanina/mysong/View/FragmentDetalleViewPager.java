@@ -4,8 +4,6 @@ package com.example.yanina.mysong.View;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +26,7 @@ import java.util.List;
 public class FragmentDetalleViewPager extends Fragment {
     private List<Artista>artistaList;
     public static final String CLAVE_POSITION="clavePosition";
+    public static final String CLAVE_ARTISTA="claveArtista";
 
     AdaptadorAlbum adaptadorAlbum;
 
@@ -41,23 +40,17 @@ public class FragmentDetalleViewPager extends Fragment {
 
 
 
-
-
         final ViewPager viewPager=(ViewPager) view.findViewById(R.id.viewPager);
 
         Bundle bundle=getArguments();
         final Integer position= bundle.getInt(CLAVE_POSITION);
+        final Integer idArtista= bundle.getInt(CLAVE_ARTISTA);
 
 
-        ControllerAlbum controllerAlbum= new ControllerAlbum();
-        controllerAlbum.obtenerAlbum(new ResultListener<List<Album>>() {
-            @Override
-            public void finish(List<Album> resultado) {
-                adaptadorAlbum.agregarAlbum(resultado);
-                adaptadorAlbum.notifyDataSetChanged();
 
-            }
-        });
+
+
+
         ControllerArtista controllerArtista=new ControllerArtista();
         controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
             @Override
@@ -65,12 +58,6 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
-
-
-
-
-
-
 
             }
 

@@ -23,4 +23,17 @@ public class ControllerArtista {
 
 
     }
+
+    public void obtenerArtistaPorId(final ResultListener<List<Artista>> listResultListener, Integer idArtista){
+        ResultListener <List<Artista>>listaDelController = new ResultListener<List<Artista>>() {
+            @Override
+            public void finish(List<Artista> resultado) {
+                listResultListener.finish(resultado);
+            }
+        };
+        DaoArtistas daoArtistas = new DaoArtistas();
+        daoArtistas.obtenerArtistaPorId(listaDelController, idArtista);
+
+
+    }
 }

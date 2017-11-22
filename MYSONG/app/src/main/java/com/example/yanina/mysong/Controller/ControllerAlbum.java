@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public class ControllerAlbum {
-    public void obtenerAlbum(final ResultListener<List<Album>> listResultListener){
+    public void obtenerAlbumPorArtista(final ResultListener<List<Album>> listResultListener, Integer IDartista){
         ResultListener <List<Album>>listaDelController = new ResultListener<List<Album>>() {
             @Override
             public void finish(List<Album> resultado) {
@@ -19,7 +19,7 @@ public class ControllerAlbum {
             }
         };
         DaoAlbum daoAlbum = new DaoAlbum();
-        daoAlbum.obtenerAlbum(listaDelController);
+        daoAlbum.obtenerAlbum(listaDelController, IDartista);
 
     }
     }
