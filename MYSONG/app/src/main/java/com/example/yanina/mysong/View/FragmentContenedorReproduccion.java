@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yanina.mysong.Controller.ControllerArtista;
+import com.example.yanina.mysong.Controller.ControllerCancion;
 import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorViewPager;
@@ -34,20 +36,18 @@ public class FragmentContenedorReproduccion extends Fragment {
 
         final ViewPager viewPager=(ViewPager) view.findViewById(R.id.viewPagerReproductor);
 
-        Bundle bundle=getArguments();
+        final Bundle bundle=getArguments();
         //final Integer position= bundle.getInt(CLAVE_POSITION2);
 
-        ControllerArtista controllerArtista=new ControllerArtista();
-        controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
+        ControllerCancion controllerCancion = new ControllerCancion();
+        controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {
             @Override
-            public void finish(List<Artista> resultado) {
+            public void finish(List<Cancion> resultado) {
                 AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
-               // viewPager.setCurrentItem(position);
-
+                viewPager.setCurrentItem(bundle.getInt(CLAVE_POSITION2));
             }
         });
-
         return view;
     }
 

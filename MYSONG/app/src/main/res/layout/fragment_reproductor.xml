@@ -42,6 +42,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:src="@drawable/ic_playlist_add_black_24dp"
+        android:onClick="agregarFavorito"
         />
 
     <LinearLayout
@@ -59,6 +60,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_skip_previous_black_24dp"
+            android:onClick="anterior"
             />
 
 
@@ -68,7 +70,8 @@
             android:layout_height="50dp"
             android:layout_below="@id/anterior"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_play_arrow_black_24dp" />
+            android:src="@drawable/ic_play_arrow_black_24dp"
+            android:onClick="play"/>
 
         <ImageView
             android:id="@+id/siguiente"
@@ -76,6 +79,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_skip_next_black_24dp"
+            android:onClick="seguiente"
             />
 
 

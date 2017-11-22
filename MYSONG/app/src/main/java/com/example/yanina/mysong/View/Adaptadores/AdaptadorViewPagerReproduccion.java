@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.View.FragmentContenedorReproduccion;
 import com.example.yanina.mysong.View.FragmentReproductor;
 
@@ -16,12 +17,12 @@ public class AdaptadorViewPagerReproduccion  extends FragmentPagerAdapter {
 
     private List<FragmentReproductor>listaDeFragmentReproduccion;
 
-    public AdaptadorViewPagerReproduccion(FragmentManager fm, List<Artista> listaDeArtista) {
+    public AdaptadorViewPagerReproduccion(FragmentManager fm, List<Cancion> listaDeCanciones) {
         super(fm);
         this.listaDeFragmentReproduccion = new ArrayList<>();
 
-        for (Artista artista: listaDeArtista){
-            listaDeFragmentReproduccion.add(FragmentReproductor.factoryReproducor(artista.getFoto(),artista.getNombreArtista(),artista.getNombreCancion(),artista.getId()));
+        for (Cancion cancion: listaDeCanciones){
+            listaDeFragmentReproduccion.add(FragmentReproductor.factoryReproducor(cancion.getTitle(),cancion.getArtista(),cancion.getPreview()));
 
 
         }

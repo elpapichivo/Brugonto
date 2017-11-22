@@ -24,6 +24,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentDetalleViewPager extends Fragment {
+
     private List<Artista>artistaList;
     public static final String CLAVE_POSITION="clavePosition";
     public static final String CLAVE_ARTISTA="claveArtista";
@@ -58,6 +59,13 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
+           }
+
+
+
+
+
+
 
             }
 
@@ -67,8 +75,6 @@ public class FragmentDetalleViewPager extends Fragment {
 
         return view;
     }
-
-
 
 
 }

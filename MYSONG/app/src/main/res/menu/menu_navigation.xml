@@ -10,10 +10,6 @@
         android:icon="@drawable/favorito_24dp"
         android:id="@+id/favoritos"/>
 
-    <item
-        android:title="Reproduccion"
-        android:icon="@drawable/ic_play_circle_filled_black_24dp"
-        android:id="@+id/iconoReproduccion"/>
 
     <item
         android:title="login"

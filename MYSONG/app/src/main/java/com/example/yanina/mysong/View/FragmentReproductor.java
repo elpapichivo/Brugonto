@@ -48,17 +48,25 @@ public class FragmentReproductor extends Fragment {
     }
 
 
-    public static FragmentReproductor factoryReproducor(String imagen, String artista, Integer cancion, Integer id) {
+
+
+    public static FragmentReproductor factoryReproducor(String title, Artista artista, String preview) {
 
 
         FragmentReproductor fragmentReproductor = new FragmentReproductor();
         Bundle bundle = new Bundle();
-        bundle.putString(CLAVE_IMAGEN, imagen);
-        bundle.putString(CLAVE_NOMBRE_ARTISTA, artista);
-        bundle.putInt(CLAVE_NOMBRE_CANCION, cancion);
+        bundle.putString(CLAVE_IMAGEN, artista.getFoto());
+        bundle.putString(CLAVE_NOMBRE_ARTISTA, artista.getNombreArtista());
+        bundle.putString(CLAVE_NOMBRE_CANCION, title);
         fragmentReproductor.setArguments(bundle);
         return fragmentReproductor;
+
     }
+
+  //  public void agregarFavorito(View view){
+  //      ImageView  agregar = ImageView view.findViewById(R.id.artistaFavorito);
+
+  //  }
 
 
 }

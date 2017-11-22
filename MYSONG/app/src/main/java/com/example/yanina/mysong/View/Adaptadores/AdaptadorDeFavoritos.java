@@ -35,13 +35,13 @@ public class AdaptadorDeFavoritos extends RecyclerView.Adapter<AdaptadorDeFavori
     }
 
     @Override
-    public void onBindViewHolder(FavoritoViewHolder holder, int position) {
+    public void onBindViewHolder(FavoritoViewHolder holder, final int position) {
         final Cancion cancion =listaDeCancionesFavoritas.get(position);
         holder.bindFavorito(cancion);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comunicadorFavoritos.enviarinfo(cancion);
+                comunicadorFavoritos.enviarinfo(position);
             }
         });
     }
@@ -70,7 +70,7 @@ public class AdaptadorDeFavoritos extends RecyclerView.Adapter<AdaptadorDeFavori
         }
     }
     public interface ComunicadorFavoritos{
-        public void enviarinfo(Cancion cancion);
+        public void enviarinfo(Integer posicion);
     }
     public void agregarCancion(List<Cancion>listaDeCanciones){
         listaDeCancionesFavoritas.addAll(listaDeCanciones);

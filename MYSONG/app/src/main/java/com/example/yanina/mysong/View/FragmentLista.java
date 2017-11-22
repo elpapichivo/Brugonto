@@ -30,7 +30,7 @@ public class FragmentLista extends Fragment {
 
 
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPeliculas);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewArtista);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
 

@@ -51,10 +51,6 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                     //Le paso al metodo que pone los fragment un nuevo fragment
                     placeFragment(new FragmentLista());
                     break;
-                case R.id.iconoReproduccion:
-                    //Le paso al metodo que pone los fragment un nuevo fragment
-                    placeFragment(new FragmentContenedorReproduccion());
-                    break;
                 case R.id.itemConfiguracion:
                     //Le paso al metodo que pone los fragment un nuevo fragment
                     Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
@@ -92,9 +88,11 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
     }
 
     @Override
-    public void enviarinfo(Cancion cancion) {
-
-
-
+    public void enviarinfo(Integer position) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(FragmentContenedorReproduccion.CLAVE_POSITION2,position);
+        FragmentContenedorReproduccion fragmentContenedorReproduccion = new FragmentContenedorReproduccion();
+        fragmentContenedorReproduccion.setArguments(bundle);
+        placeFragment(fragmentContenedorReproduccion);
 }
 }
