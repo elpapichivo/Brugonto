@@ -48,10 +48,6 @@ public class FragmentDetalleViewPager extends Fragment {
         final Integer idArtista= bundle.getInt(CLAVE_ARTISTA);
 
 
-
-
-
-
         ControllerArtista controllerArtista=new ControllerArtista();
         controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
             @Override
@@ -60,17 +56,6 @@ public class FragmentDetalleViewPager extends Fragment {
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
            }
-
-
-
-
-
-
-
-            }
-
-
-
         });
 
         return view;
