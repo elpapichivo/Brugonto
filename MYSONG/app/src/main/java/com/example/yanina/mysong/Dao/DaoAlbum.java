@@ -18,9 +18,9 @@ import java.util.List;
  */
 
 public class DaoAlbum {
-    public void obtenerArtista(ResultListener<List<Album>> listaDelController){
+    public void obtenerAlbum(ResultListener<List<Album>> listaDelController){
         TareaAsincronaAlbum tareaAsincronaAlbum=new TareaAsincronaAlbum(listaDelController);
-        tareaAsincronaAlbum.execute(DeezerHelper.chartAlbumsPorGenero(0));
+        tareaAsincronaAlbum.execute(DeezerHelper.albumesPorArtista(0));
     }
 
     public class TareaAsincronaAlbum extends AsyncTask<String, Void,List<Album>> {

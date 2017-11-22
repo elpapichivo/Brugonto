@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.yanina.mysong.Controller.ControllerAlbum;
 import com.example.yanina.mysong.Controller.ControllerArtista;
+import com.example.yanina.mysong.Model.Album;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
@@ -47,7 +49,15 @@ public class FragmentDetalleViewPager extends Fragment {
         final Integer position= bundle.getInt(CLAVE_POSITION);
 
 
+        ControllerAlbum controllerAlbum= new ControllerAlbum();
+        controllerAlbum.obtenerAlbum(new ResultListener<List<Album>>() {
+            @Override
+            public void finish(List<Album> resultado) {
+                adaptadorAlbum.agregarAlbum(resultado);
+                adaptadorAlbum.notifyDataSetChanged();
 
+            }
+        });
         ControllerArtista controllerArtista=new ControllerArtista();
         controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
             @Override
@@ -55,14 +65,17 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
-                adaptadorAlbum.agregarAlbum(resultado);
-                adaptadorViewPager.notifyDataSetChanged();
+
+
 
 
 
 
 
             }
+
+
+
         });
 
         return view;

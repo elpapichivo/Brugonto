@@ -70,5 +70,8 @@ public class DeezerHelper {
     public static String userPorId(Integer userId){
         return URL_BASE + "user/" + userId;
     }
+    public static String albumesPorArtista(Integer artistaId){
+        return URL_BASE + "artist/" + artistaId + "/albums";
+    }
 
 }
