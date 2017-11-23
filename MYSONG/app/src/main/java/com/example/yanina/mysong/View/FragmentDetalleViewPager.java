@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.yanina.mysong.Controller.ControllerAlbum;
 import com.example.yanina.mysong.Controller.ControllerArtista;
@@ -58,8 +60,13 @@ public class FragmentDetalleViewPager extends Fragment {
            }
         });
 
+
+
+
         return view;
     }
+
+
 
 
 }
