@@ -78,13 +78,7 @@ public class DetalleFragment extends Fragment {
             //Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
 
 
-            Button buttonAleatorio = (Button) view.findViewById(R.id.botonAleatorio);
-            buttonAleatorio.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getContext(), "Boton Aleatorio (En construccion)", Toast.LENGTH_SHORT).show();
-                }
-            });
+
 
 
 
