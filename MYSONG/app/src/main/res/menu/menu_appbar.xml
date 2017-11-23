@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="artistas" android:icon="@drawable/ic_person2_black_24dp" android:id="@+id/artistasAppbar"
+        app:showAsAction="always"/>
+
+    <item android:title="favoritos" android:icon="@drawable/favorito2_24dp" android:id="@+id/favoritosAppbar"
+        app:showAsAction="always"/>
+
+    <item android:title="login" android:icon="@drawable/login2_24dp" android:id="@+id/loginAppbar"
+        app:showAsAction="ifRoom"/>
+
+</menu>

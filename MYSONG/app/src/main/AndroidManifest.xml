@@ -20,7 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.DetalleActivity" />
+        <activity android:name=".View.DetalleActivity"
+            android:label="Brugonto"
+            android:parentActivityName=".View.MainActivity"
+            />
     </application>
 
 </manifest>
