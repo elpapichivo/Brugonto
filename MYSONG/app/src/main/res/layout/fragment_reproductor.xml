@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#000000"
     tools:context="com.example.yanina.mysong.View.FragmentReproductor">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Favoritos"
         android:textSize="20dp"
+        android:textColor="#f9f5f5"
         android:gravity="center"
         />
 
@@ -22,11 +24,12 @@
         android:id="@+id/reproductorImagen"/>
 
     <TextView
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="NOMBRE ARTISTA"
         android:gravity="center"
+        android:textColor="#f9f3f3"
         android:id="@+id/reproductorNombreArtista"/>
 
     <TextView
@@ -34,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text="nombre cancion"
         android:gravity="center"
+        android:textColor="#f1eeee"
         android:id="@+id/reproductorNombreCancion"/>
 
     <ImageView
