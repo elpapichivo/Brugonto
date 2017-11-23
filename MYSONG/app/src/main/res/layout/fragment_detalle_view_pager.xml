@@ -22,9 +22,9 @@
         android:id="@+id/botonAleatorio"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="377dp"
+        android:layout_height="360dp"
         android:id="@+id/recyclerAlbum"
         android:background="#000000"
         ></android.support.v7.widget.RecyclerView>
@@ -44,9 +44,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="37sp"
+        android:textSize="30sp"
         android:gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:textStyle="bold"
         android:textColor="#f7f3f3"
         android:id="@+id/textViewNombre"
