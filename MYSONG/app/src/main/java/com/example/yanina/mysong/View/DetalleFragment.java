@@ -57,10 +57,10 @@ public class DetalleFragment extends Fragment {
             recyclerView.setAdapter(adaptadorAlbum);
 
 
-            ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+            //ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             TextView textViewNombre = (TextView) view.findViewById(R.id.textViewNombre);
-            TextView textViewArtista = (TextView) view.findViewById(R.id.textViewArtista);
-            TextView textViewAlbum = (TextView) view.findViewById(R.id.textViewAlbum);
+            //TextView textViewArtista = (TextView) view.findViewById(R.id.textViewArtista);
+           // TextView textViewAlbum = (TextView) view.findViewById(R.id.textViewAlbum);
 
             //Recibir bundle
             Bundle bundle = getArguments();
@@ -70,11 +70,11 @@ public class DetalleFragment extends Fragment {
 
             //imageView.setImageResource(bundle.getString(CLAVE_IMAGEN));
             textViewNombre.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
-            textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
-            textViewAlbum.setText(bundle.getString(CLAVE_ARISTA));
+            //textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
+            //textViewAlbum.setText(bundle.getString(CLAVE_ARISTA));
 
             RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
-            Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
+            //Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
 
             ControllerAlbum controllerAlbum= new ControllerAlbum();
             controllerAlbum.obtenerAlbumPorArtista(new ResultListener<List<Album>>() {
