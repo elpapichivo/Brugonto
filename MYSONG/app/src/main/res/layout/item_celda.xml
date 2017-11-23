@@ -48,13 +48,7 @@
             android:textStyle="bold"
             android:textColor="#355976"/>
 
-        <TextView
-            android:id="@+id/celda_lista_genero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="#e42a4d76"
-            android:textStyle="bold"/>
+
 
     </LinearLayout>
 

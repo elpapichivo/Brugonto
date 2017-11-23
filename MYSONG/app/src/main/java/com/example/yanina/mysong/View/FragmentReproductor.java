@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -43,6 +45,38 @@ public class FragmentReproductor extends Fragment {
 
         RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
         Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
+
+        ImageView botonFavorito = (ImageView) view.findViewById(R.id.agregarFavorito);
+        botonFavorito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Boton Agregar a Favoritos", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView botonAnterior = (ImageView) view.findViewById(R.id.anterior);
+        botonAnterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Boton Anterior (En construccion)", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView botonPlay = (ImageView) view.findViewById(R.id.play);
+        botonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Boton Play (En construccion)", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView botonSiguiente = (ImageView) view.findViewById(R.id.siguiente);
+        botonSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Boton Siguiente (En construccion)", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

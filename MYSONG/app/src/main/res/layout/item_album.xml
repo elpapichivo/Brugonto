@@ -23,7 +23,7 @@
         android:padding="20dp"
         android:layout_below="@id/imagenAlbum"
         android:id="@+id/nombreAlbum"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="#FFFFFF"
         />
 

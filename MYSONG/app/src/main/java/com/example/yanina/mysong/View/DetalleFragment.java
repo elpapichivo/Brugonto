@@ -8,8 +8,10 @@ package com.example.yanina.mysong.View;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.ImageView;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import com.bumptech.glide.Glide;
         import com.bumptech.glide.request.RequestOptions;
@@ -68,15 +70,20 @@ public class DetalleFragment extends Fragment {
             Bundle bundle = getArguments();
 
 
-
-
             //imageView.setImageResource(bundle.getString(CLAVE_IMAGEN));
             textViewNombre.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
             //textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
             //textViewAlbum.setText(bundle.getString(CLAVE_ARISTA));
 
             RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
+
             //Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
+
+
+
+
+
+
 
             ControllerAlbum controllerAlbum= new ControllerAlbum();
             controllerAlbum.obtenerAlbumPorArtista(new ResultListener<List<Album>>() {
@@ -87,6 +94,7 @@ public class DetalleFragment extends Fragment {
 
                 }
             }, bundle.getInt(CLAVE_ARISTA));
+
 
 
 
