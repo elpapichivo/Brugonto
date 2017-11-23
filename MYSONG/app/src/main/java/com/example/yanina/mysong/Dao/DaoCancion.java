@@ -18,6 +18,13 @@ import java.util.List;
  */
 
 public class DaoCancion {
+    public static final String COLUMNA_TITULO="titulo";
+    public static final String COLUMNA_PREVIEW="preview";
+    public static final String COLUMNA_ARTISTA="artista";
+    public static final String TABLE_NAME="Canciones";
+
+
+
     public void obtenerCancion(ResultListener<List<Cancion>>listaDelController){
         TareaAsincronaCancion tareaAsincronaCancion=new TareaAsincronaCancion(listaDelController);
         tareaAsincronaCancion.execute(DeezerHelper.chartTracksPorGenero(0));
