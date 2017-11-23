@@ -21,4 +21,16 @@ public class ControllerCancion {
         DaoCancion daoCancion=new DaoCancion();
         daoCancion.obtenerCancion(listaDelController);
     }
+    public void obtenerCancionPorAlbum(final ResultListener<List<Cancion>> listResultListener, Integer idAlbum){
+        ResultListener<List<Cancion>>listaDelController=new ResultListener<List<Cancion>>() {
+            @Override
+            public void finish(List<Cancion> resultado) {
+                listResultListener.finish(resultado);
+            }
+        };
+        DaoCancion daoCancion=new DaoCancion();
+        daoCancion.obtenerCancionPorAlbum(listaDelController, idAlbum);
+    }
+
+
 }

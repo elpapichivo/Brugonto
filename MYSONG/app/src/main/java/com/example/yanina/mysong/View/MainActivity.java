@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.miToolbar);
+        setSupportActionBar(toolbar);
+
         placeFragment(new InicioFragment());
 
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayoutMain);
@@ -42,6 +48,30 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                 return false;
             }
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_appbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.artistasAppbar:
+                placeFragment(new FragmentLista());
+                return true;
+            case R.id.favoritosAppbar:
+                placeFragment(new FragmentFavoritos());
+                return true;
+            case R.id.loginAppbar:
+                placeFragment(new LoginFragment());
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
         private void itemClickNavigation(MenuItem item){

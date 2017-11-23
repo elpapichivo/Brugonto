@@ -82,7 +82,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         private ImageView imageViewPelicula;
         private LinearLayout layout;
         private TextView textViewNombre;
-        private TextView textViewGenero;
+
 
         //Constructor
         public ArtistaViewHolder(View itemView) {
@@ -90,7 +90,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
             //Busco los componentes correspondientes en la vista de la celda
             imageViewPelicula = (ImageView) itemView.findViewById(R.id.celda_lista_imagen);
             textViewNombre = (TextView) itemView.findViewById(R.id.celda_lista_nombre_artista);
-            textViewGenero = (TextView) itemView.findViewById(R.id.celda_lista_genero);
+
 
 
         }
@@ -98,7 +98,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         public void bindArtista(Artista artista, Context context){
             //imageViewPelicula.setImageResource(artista.getFoto());
             textViewNombre.setText(artista.getNombreArtista());
-            textViewGenero.setText(artista.getId().toString());
+
 
             RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
             Glide.with(context).load(artista.getFoto()).apply(requestOptions).into(imageViewPelicula);

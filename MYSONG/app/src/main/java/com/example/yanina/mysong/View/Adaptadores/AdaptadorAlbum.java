@@ -28,6 +28,7 @@ public class AdaptadorAlbum extends RecyclerView.Adapter<AdaptadorAlbum.ViewHold
 
     public AdaptadorAlbum(Context context) {
         this.context = context;
+        comunicadorAlbumes=(ComunicadorAlbumes)context;
     }
 
     @Override
@@ -41,9 +42,14 @@ public class AdaptadorAlbum extends RecyclerView.Adapter<AdaptadorAlbum.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolderAlbum holder, int position) {
-        Album album=listaDeAlbum.get(position);
+        final Album album=listaDeAlbum.get(position);
         holder.bindAlbum(album, context );
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comunicadorAlbumes.enviarIInfo(album);
+            }
+        });
     }
     
 
