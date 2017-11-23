@@ -9,29 +9,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-=======
->>>>>>> master
 import android.widget.Toast;
 
 import com.example.yanina.mysong.Model.Album;
 import com.example.yanina.mysong.R;
-<<<<<<< HEAD
+
 import com.example.yanina.mysong.View.Adaptadores.Adaptador;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
-
-public class DetalleActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
-
-    private NavigationView navigationView;
-=======
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
 
-public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum.ComunicadorAlbumes{
+public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum.ComunicadorAlbumes, Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
 
->>>>>>> master
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
