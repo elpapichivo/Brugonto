@@ -27,6 +27,10 @@ public class FragmentContenedorReproduccion extends Fragment {
 
     private List<Artista>artistaList;
     public static final String CLAVE_POSITION2="clavePosition";
+    public static final String CLAVE_ALBUM="claveAlbum";
+    ControllerCancion controllerCancion;
+    ViewPager viewPager;
+    Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,12 +38,23 @@ public class FragmentContenedorReproduccion extends Fragment {
 
       View view=  inflater.inflate(R.layout.fragment_contenedor_reproduccion, container, false);
 
-        final ViewPager viewPager=(ViewPager) view.findViewById(R.id.viewPagerReproductor);
+        viewPager=(ViewPager) view.findViewById(R.id.viewPagerReproductor);
+        controllerCancion = new ControllerCancion();
 
-        final Bundle bundle=getArguments();
-        //final Integer position= bundle.getInt(CLAVE_POSITION2);
+        bundle=getArguments();
 
-        ControllerCancion controllerCancion = new ControllerCancion();
+        if(bundle.containsKey(CLAVE_ALBUM)){
+            cargarAlbum(bundle.getInt(CLAVE_ALBUM));
+        }else{
+            cargarFavorito();
+        }
+
+
+
+        return view;
+    }
+
+    public void cargarFavorito(){
         controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {
             @Override
             public void finish(List<Cancion> resultado) {
@@ -48,10 +63,18 @@ public class FragmentContenedorReproduccion extends Fragment {
                 viewPager.setCurrentItem(bundle.getInt(CLAVE_POSITION2));
             }
         });
-        return view;
     }
 
-
+    public void cargarAlbum(Integer claveAlbum){
+        controllerCancion.obtenerCancionPorAlbum(new ResultListener<List<Cancion>>() {
+            @Override
+            public void finish(List<Cancion> resultado) {
+                AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),resultado);
+                viewPager.setAdapter(adaptadorViewPager);
+                viewPager.setCurrentItem(bundle.getInt(CLAVE_POSITION2));
+            }
+        },claveAlbum);
+    }
 
     }
 

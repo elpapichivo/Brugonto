@@ -18,9 +18,11 @@ import java.util.List;
  */
 
 public class AdaptadorDeFavoritos extends RecyclerView.Adapter<AdaptadorDeFavoritos.FavoritoViewHolder> {
+
     private Context context;
     private List<Cancion> listaDeCancionesFavoritas = new ArrayList<>();
     private  ComunicadorFavoritos comunicadorFavoritos;
+
     public AdaptadorDeFavoritos(Context context) {
         this.context=context;
         comunicadorFavoritos=(ComunicadorFavoritos) context;
@@ -69,6 +71,8 @@ public class AdaptadorDeFavoritos extends RecyclerView.Adapter<AdaptadorDeFavori
 
         }
     }
+
+
     public interface ComunicadorFavoritos{
         public void enviarinfo(Integer posicion);
     }

@@ -56,6 +56,7 @@ public class DetalleFragment extends Fragment {
             View view = inflater.inflate(R.layout.fragment_detalle_view_pager, container, false);
 
             RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.recyclerAlbum);
+
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
             adaptadorAlbum= new AdaptadorAlbum(getContext());
             recyclerView.setAdapter(adaptadorAlbum);
@@ -75,7 +76,7 @@ public class DetalleFragment extends Fragment {
             //textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
             //textViewAlbum.setText(bundle.getString(CLAVE_ARISTA));
 
-            RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
+          RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
 
             //Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
 

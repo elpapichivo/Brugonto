@@ -18,10 +18,11 @@ import com.example.yanina.mysong.Model.Album;
 import com.example.yanina.mysong.R;
 
 import com.example.yanina.mysong.View.Adaptadores.Adaptador;
+import com.example.yanina.mysong.View.Adaptadores.AdaptadorCancion;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
 
-public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum.ComunicadorAlbumes, Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
+public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum.ComunicadorAlbumes, Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos, AdaptadorCancion.ComunicadorCancion{
 
     private NavigationView navigationView;
 
@@ -148,5 +149,16 @@ public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum
         fragmentTransactionn.commit();
 
 
+    }
+
+    @Override
+    public void enviarInformacionCancion(Integer claveAlbum, Integer posicion) {
+         Bundle bundle = new Bundle();
+        bundle.putInt(FragmentContenedorReproduccion.CLAVE_POSITION2,posicion);
+        bundle.putInt(FragmentContenedorReproduccion.CLAVE_ALBUM,claveAlbum);
+         FragmentContenedorReproduccion fragmentContenedorReproduccion = new FragmentContenedorReproduccion();
+        fragmentContenedorReproduccion.setArguments(bundle);
+         placeFragment(fragmentContenedorReproduccion);
+        Toast.makeText(this, posicion.toString(), Toast.LENGTH_SHORT).show();
     }
 }

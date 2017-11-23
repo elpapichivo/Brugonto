@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.yanina.mysong.Controller.ControllerCancion;
 import com.example.yanina.mysong.Model.Cancion;
@@ -24,6 +25,7 @@ import java.util.List;
 public class CancionFragment extends Fragment {
 
     AdaptadorCancion adaptadorCancion;
+
     public static final String CLAVE_ALBUM="claveAlbum";
 
 
@@ -31,11 +33,18 @@ public class CancionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_cancion, container, false);
+
+          TextView textView = (TextView) view.findViewById(R.id.nombreAlbum);
+
         Bundle bundle=getArguments();
 
+      //  textView.setText(bundle.getString(CLAVE_ALBUM));
+
+
         final RecyclerView recyclerView=(RecyclerView) view.findViewById(R.id.recyclerCanciones);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
-        adaptadorCancion= new AdaptadorCancion(getContext());
+        adaptadorCancion= new AdaptadorCancion(getContext(),bundle.getInt(CLAVE_ALBUM) );
         ControllerCancion controllerCancion=new ControllerCancion();
         controllerCancion.obtenerCancionPorAlbum(new ResultListener<List<Cancion>>() {
             @Override
@@ -48,10 +57,10 @@ public class CancionFragment extends Fragment {
         }, bundle.getInt(CLAVE_ALBUM));
 
 
-
-
-
         return view;
     }
+
+
+
 
 }

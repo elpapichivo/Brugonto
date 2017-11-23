@@ -35,7 +35,9 @@ public class FragmentFavoritos extends Fragment {
 
 
         View view=inflater.inflate(R.layout.fragment_favoritos, container, false);
+
         RecyclerView recyclerView= (RecyclerView)view.findViewById(R.id.favoritosReciclerView);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         adaptadorDeFavoritos = new AdaptadorDeFavoritos(getContext());
         controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {

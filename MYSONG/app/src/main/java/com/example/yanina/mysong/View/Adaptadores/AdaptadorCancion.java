@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.yanina.mysong.Controller.ControllerCancion;
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 
@@ -20,9 +21,13 @@ import java.util.List;
 public class AdaptadorCancion extends RecyclerView.Adapter<AdaptadorCancion.ViewHolderCancion> {
     private List<Cancion>cancionList=new ArrayList<>();
     private Context context;
+    private ComunicadorCancion comunicadorCancion;
+    private Integer claveAlbum;
 
-    public AdaptadorCancion(Context context) {
+    public AdaptadorCancion(Context context, Integer claveAlbum) {
         this.context = context;
+        this.claveAlbum = claveAlbum;
+        comunicadorCancion = (ComunicadorCancion) context;
     }
 
     @Override
@@ -36,9 +41,15 @@ public class AdaptadorCancion extends RecyclerView.Adapter<AdaptadorCancion.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderCancion holder, int position) {
+    public void onBindViewHolder(ViewHolderCancion holder, final int position) {
         Cancion cancion=cancionList.get(position);
         holder.bindCancion(cancion, context);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comunicadorCancion.enviarInformacionCancion(claveAlbum, position);
+            }
+        });
     }
 
     @Override
@@ -58,12 +69,11 @@ public class AdaptadorCancion extends RecyclerView.Adapter<AdaptadorCancion.View
         }
     }
     public interface ComunicadorCancion{
-        public void enviarInformacionCancion(Cancion cancion);
+        public void enviarInformacionCancion(Integer claveAlbum, Integer posicion);
 
     }
     public void agregarCancion(List<Cancion>listaDeCanciones){
         cancionList.addAll(listaDeCanciones);
-
 
     }
 }
