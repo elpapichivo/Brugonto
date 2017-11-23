@@ -11,10 +11,15 @@ public class Album {
     private String foto;
     @SerializedName("title")
     private String nombreAlbum;
+    private Integer id;
+    @SerializedName("tracklist")
+    private String tracks;
 
-    public Album(String foto, String nombreAlbum) {
+
+    public Album(String foto, String nombreAlbum, Integer id) {
         this.foto = foto;
         this.nombreAlbum = nombreAlbum;
+        this.id = id;
     }
 
     public String getFoto() {
@@ -23,5 +28,9 @@ public class Album {
 
     public String getNombreAlbum() {
         return nombreAlbum;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

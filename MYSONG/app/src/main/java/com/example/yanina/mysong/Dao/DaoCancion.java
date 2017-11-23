@@ -23,7 +23,12 @@ public class DaoCancion {
         tareaAsincronaCancion.execute(DeezerHelper.chartTracksPorGenero(0));
 
     }
-    public class TareaAsincronaCancion extends AsyncTask <String, Void, List<Cancion>>{
+    public void obtenerCancionPorAlbum(ResultListener<List<Cancion>>listaDelController, Integer idAlbum) {
+        TareaAsincronaCancion tareaAsincronaCancion = new TareaAsincronaCancion(listaDelController);
+        tareaAsincronaCancion.execute(DeezerHelper.cancionPorAlbum(idAlbum));
+    }
+
+        public class TareaAsincronaCancion extends AsyncTask <String, Void, List<Cancion>>{
         private ResultListener<List<Cancion>> listenerDelController;
 
         public TareaAsincronaCancion(ResultListener<List<Cancion>> listenerDelController) {

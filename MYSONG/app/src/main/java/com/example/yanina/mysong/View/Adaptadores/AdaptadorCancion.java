@@ -61,4 +61,9 @@ public class AdaptadorCancion extends RecyclerView.Adapter<AdaptadorCancion.View
         public void enviarInformacionCancion(Cancion cancion);
 
     }
+    public void agregarCancion(List<Cancion>listaDeCanciones){
+        cancionList.addAll(listaDeCanciones);
+
+
+    }
 }

@@ -2,6 +2,7 @@ package com.example.yanina.mysong.View;
 
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
+        import android.support.v4.app.FragmentManager;
         import android.support.v7.widget.LinearLayoutManager;
         import android.support.v7.widget.RecyclerView;
         import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ package com.example.yanina.mysong.View;
         import com.example.yanina.mysong.Controller.ControllerAlbum;
         import com.example.yanina.mysong.Model.Album;
         import com.example.yanina.mysong.Model.Artista;
+        import com.example.yanina.mysong.Model.Cancion;
         import com.example.yanina.mysong.R;
         import com.example.yanina.mysong.Utils.ResultListener;
         import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
@@ -82,6 +84,7 @@ public class DetalleFragment extends Fragment {
                 public void finish(List<Album> resultado) {
                     adaptadorAlbum.agregarAlbum(resultado);
                     adaptadorAlbum.notifyDataSetChanged();
+
                 }
             }, bundle.getInt(CLAVE_ARISTA));
 
@@ -90,4 +93,5 @@ public class DetalleFragment extends Fragment {
             // Inflate the layout for this fragment
             return view;
         }
+
     }
