@@ -17,7 +17,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE "+ DaoCancion.TABLE_NAME+ "( "+ DaoCancion.COLUMNA_TITULO+ " ");
+        String query = "CREATE TABLE "+ DaoCancion.TABLE_NAME +"(" +
+                DaoCancion.COLUMNA_ID + " INTEGER PRIMARY KEY, " +
+                DaoCancion.COLUMNA_ARTISTA + " INTEGER NOT NULL, " +
+                DaoCancion.COLUMNA_PREVIEW + " TEXT, " +
+                DaoCancion.COLUMNA_TITULO + " TEXT," +
+                DaoCancion.COLUMNA_FAV + " BOOLEAN);";
+
+
+        String query2 = "CREATE TABLE "+ DaoArtistas.TABLE_NAME +"(" +
+                DaoArtistas.COLUMNA_ID + " INTEGER PRIMARY KEY, " +
+                DaoArtistas.COLUMNA_NOMBRE + " TEXT NOT NULL, " +
+                DaoArtistas.COLUMNA_FOTO + " TEXT);";
+
+        String query3 = "CREATE TABLE "+ DaoAlbum.TABLE_NAME +"(" +
+                DaoAlbum.COLUMNA_ID + " INTEGER PRIMARY KEY, " +
+                DaoAlbum.COLUMNA_NOMBRE + " TEXT NOT NULL, " +
+                DaoAlbum.COLUMNA_FOTO + " TEXT," +
+                DaoAlbum.COLUMNA_TRACKLIST + "TEXT);";
+        db.execSQL(query);
+        db.execSQL(query2);
+        db.execSQL(query3);
 
     }
 

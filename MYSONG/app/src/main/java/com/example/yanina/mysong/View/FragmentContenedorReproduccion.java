@@ -55,7 +55,7 @@ public class FragmentContenedorReproduccion extends Fragment {
     }
 
     public void cargarFavorito(){
-        controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {
+        controllerCancion.obtenerCancion(getContext(), new ResultListener<List<Cancion>>() {
             @Override
             public void finish(List<Cancion> resultado) {
                 AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),resultado);
@@ -66,7 +66,7 @@ public class FragmentContenedorReproduccion extends Fragment {
     }
 
     public void cargarAlbum(Integer claveAlbum){
-        controllerCancion.obtenerCancionPorAlbum(new ResultListener<List<Cancion>>() {
+        controllerCancion.obtenerCancionPorAlbum(getContext(), new ResultListener<List<Cancion>>() {
             @Override
             public void finish(List<Cancion> resultado) {
                 AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),resultado);

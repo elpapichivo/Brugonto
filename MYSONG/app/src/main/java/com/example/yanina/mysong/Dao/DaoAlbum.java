@@ -1,5 +1,6 @@
 package com.example.yanina.mysong.Dao;
 
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.yanina.mysong.Model.Album;
@@ -17,7 +18,18 @@ import java.util.List;
  * Created by elpapichivo on 20/11/2017.
  */
 
-public class DaoAlbum {
+public class DaoAlbum extends DataBaseHelper {
+    public static final String TABLE_NAME="Albumes";
+    public static final String COLUMNA_FOTO="foto";
+    public static final String COLUMNA_NOMBRE="nombreAlbum";
+    public static final String COLUMNA_ID="id";
+    public static final String COLUMNA_TRACKLIST="tracks";
+
+    public DaoAlbum(Context context) {
+        super(context);
+    }
+
+
     public void obtenerAlbum(ResultListener<List<Album>> listaDelController,Integer idArtista){
         TareaAsincronaAlbum tareaAsincronaAlbum=new TareaAsincronaAlbum(listaDelController);
         tareaAsincronaAlbum.execute(DeezerHelper.albumesPorArtista(idArtista));

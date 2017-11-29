@@ -51,7 +51,7 @@ public class FragmentDetalleViewPager extends Fragment {
 
 
         ControllerArtista controllerArtista=new ControllerArtista();
-        controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
+        controllerArtista.obtenerArtista(getContext(), new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);

@@ -13,6 +13,19 @@ public class Cancion {
     @SerializedName("artist")
     private Artista artista;
     private String preview;
+    private String id;
+
+    public Cancion(String title, Artista artista, String preview, String id) {
+        this.title = title;
+        this.artista = artista;
+        this.preview = preview;
+        this.id = id;
+    }
+
+    public String getId(){
+        return id;
+
+    }
 
     public String getTitle() {
         return title;
@@ -36,5 +49,15 @@ public class Cancion {
 
     public void setPreview(String preview) {
         this.preview = preview;
+    }
+
+    @Override
+    public String toString() {
+        return "Cancion{" +
+                "title='" + title + '\'' +
+                ", artista=" + artista +
+                ", preview='" + preview + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

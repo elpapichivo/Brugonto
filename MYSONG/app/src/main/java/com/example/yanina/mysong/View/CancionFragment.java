@@ -46,7 +46,7 @@ public class CancionFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
         adaptadorCancion= new AdaptadorCancion(getContext(),bundle.getInt(CLAVE_ALBUM) );
         ControllerCancion controllerCancion=new ControllerCancion();
-        controllerCancion.obtenerCancionPorAlbum(new ResultListener<List<Cancion>>() {
+        controllerCancion.obtenerCancionPorAlbum(getContext(), new ResultListener<List<Cancion>>() {
             @Override
             public void finish(List<Cancion> resultado) {
                 recyclerView.setAdapter(adaptadorCancion);

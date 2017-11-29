@@ -1,7 +1,13 @@
 package com.example.yanina.mysong.Dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
+import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.Model.ContenedorCancion;
 import com.example.yanina.mysong.Utils.DAOException;
@@ -17,12 +23,20 @@ import java.util.List;
  * Created by ma on 16/11/17.
  */
 
-public class DaoCancion {
+public class DaoCancion extends  DataBaseHelper {
     public static final String COLUMNA_TITULO="titulo";
     public static final String COLUMNA_PREVIEW="preview";
     public static final String COLUMNA_ARTISTA="artista";
     public static final String TABLE_NAME="Canciones";
+    public static final String COLUMNA_ID="id";
+    public static final String COLUMNA_FAV="false";
 
+    private Context context;
+
+    public DaoCancion(Context context) {
+        super(context);
+        this.context = context;
+    }
 
 
     public void obtenerCancion(ResultListener<List<Cancion>>listaDelController){
@@ -75,6 +89,78 @@ public class DaoCancion {
             super.onPostExecute(cancionList);
             listenerDelController.finish(cancionList);
         }
+    }
+
+
+    public void agregarCancion(Cancion cancion) {
+        //Crear una conexion a la base de datos.
+
+        SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMNA_TITULO, cancion.getTitle());
+        contentValues.put(COLUMNA_ARTISTA, cancion.getArtista().getId());
+        contentValues.put(COLUMNA_ID, cancion.getId());
+        contentValues.put(COLUMNA_PREVIEW, cancion.getPreview());
+        contentValues.put(COLUMNA_FAV, false);
+
+
+        database.insert(TABLE_NAME, null, contentValues);
+
+        database.close();
+    }
+
+    public void agregarCanciones(Context context, List<Cancion> list){
+        DaoArtistas daoArtistas = new DaoArtistas(context);
+
+        for (Cancion cancion : list){
+            daoArtistas.agregarArtista(cancion.getArtista());
+            agregarCancion(cancion);
+        }
+    }
+
+    public List<Cancion> buscarCanciones(){
+        SQLiteDatabase database = getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + ", " + DaoArtistas.TABLE_NAME +
+                        " WHERE " + TABLE_NAME + "." + COLUMNA_ARTISTA + " = " + DaoArtistas.TABLE_NAME + "." +  DaoArtistas.COLUMNA_ID, null);
+
+
+        List<Cancion> noticiaList = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+
+            String fotoArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_FOTO));
+            String nombreArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_NOMBRE));
+            Integer idArtista = cursor.getInt(cursor.getColumnIndex(DaoArtistas.COLUMNA_ID));
+
+            Artista artista = new Artista(idArtista, nombreArtista, 0, fotoArtista);
+
+
+            String id = cursor.getString(cursor.getColumnIndex(COLUMNA_ID));
+            String preview = cursor.getString(cursor.getColumnIndex(COLUMNA_PREVIEW));
+            String tituloCancion = cursor.getString(cursor.getColumnIndex(COLUMNA_TITULO));
+
+
+            Cancion cancion = new Cancion(tituloCancion, artista, preview, id);
+            noticiaList.add(cancion);
+
+            Toast.makeText(context, cancion.toString(), Toast.LENGTH_LONG).show();
+
+
+        }
+
+
+        cursor.close();
+        database.close();
+
+        return noticiaList;
+    }
+
+    public void buscarFavoritos(){
+        SQLiteDatabase database = getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + "WHILE", null );
     }
 
 }

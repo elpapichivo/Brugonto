@@ -1,5 +1,7 @@
 package com.example.yanina.mysong.Controller;
 
+import android.content.Context;
+
 import com.example.yanina.mysong.Dao.DaoArtistas;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.Utils.ResultListener;
@@ -11,27 +13,27 @@ import java.util.List;
  */
 
 public class ControllerArtista {
-    public void obtenerArtista(final ResultListener<List<Artista>> listResultListener){
+    public void obtenerArtista(Context context, final ResultListener<List<Artista>> listResultListener){
         ResultListener <List<Artista>>listaDelController = new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
                 listResultListener.finish(resultado);
             }
         };
-        DaoArtistas daoArtistas = new DaoArtistas();
+        DaoArtistas daoArtistas = new DaoArtistas(context);
         daoArtistas.obtenerArtista(listaDelController);
 
 
     }
 
-    public void obtenerArtistaPorId(final ResultListener<List<Artista>> listResultListener, Integer idArtista){
+    public void obtenerArtistaPorId(Context context, final ResultListener<List<Artista>> listResultListener, Integer idArtista){
         ResultListener <List<Artista>>listaDelController = new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
                 listResultListener.finish(resultado);
             }
         };
-        DaoArtistas daoArtistas = new DaoArtistas();
+        DaoArtistas daoArtistas = new DaoArtistas(context);
         daoArtistas.obtenerArtistaPorId(listaDelController, idArtista);
 
 

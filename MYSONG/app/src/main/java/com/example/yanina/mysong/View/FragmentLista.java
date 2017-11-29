@@ -36,7 +36,7 @@ public class FragmentLista extends Fragment {
 
         adapterRecycler = new Adaptador(getContext());
 
-        controllerArtista.obtenerArtista(new ResultListener<List<Artista>>() {
+        controllerArtista.obtenerArtista(getContext(), new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
                 adapterRecycler.agregarMusica(resultado);

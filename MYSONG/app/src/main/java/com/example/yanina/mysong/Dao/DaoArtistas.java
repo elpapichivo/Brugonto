@@ -1,8 +1,12 @@
 package com.example.yanina.mysong.Dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
 import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.Model.ContenedorArtista;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.DAOException;
@@ -18,7 +22,17 @@ import java.util.List;
  * Created by ma on 08/11/17.
  */
 
-public class DaoArtistas {
+public class DaoArtistas extends DataBaseHelper {
+        public static final String TABLE_NAME="Artistas";
+        public static final String COLUMNA_FOTO="foto";
+        public static final String COLUMNA_ID="position";
+        public static final String COLUMNA_NOMBRE="nombreArtista";
+
+    public DaoArtistas(Context context) {
+        super(context);
+    }
+
+
     public void obtenerArtista(ResultListener<List<Artista>> listaDelController){
         TareaAsincrona tareaAsincrona=new TareaAsincrona(listaDelController);
         tareaAsincrona.execute(DeezerHelper.chartArtistsPorGenero(0));
@@ -68,5 +82,23 @@ public class DaoArtistas {
             listenerDelController.finish(artistas);
         }
     }
+
+
+    public void agregarArtista(Artista artista) {
+        //Crear una conexion a la base de datos.
+
+        SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues contentValuesArtista = new ContentValues();
+        contentValuesArtista.put(COLUMNA_FOTO, artista.getFoto());
+        contentValuesArtista.put(COLUMNA_ID, artista.getId());
+        contentValuesArtista.put(COLUMNA_NOMBRE, artista.getNombreArtista());
+
+        database.insert(TABLE_NAME, null, contentValuesArtista);
+
+
+        database.close();
+    }
+
 
 }

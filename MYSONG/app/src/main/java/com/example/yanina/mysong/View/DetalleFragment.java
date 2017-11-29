@@ -87,7 +87,7 @@ public class DetalleFragment extends Fragment {
 
 
             ControllerAlbum controllerAlbum= new ControllerAlbum();
-            controllerAlbum.obtenerAlbumPorArtista(new ResultListener<List<Album>>() {
+            controllerAlbum.obtenerAlbumPorArtista(getContext(), new ResultListener<List<Album>>() {
                 @Override
                 public void finish(List<Album> resultado) {
                     adaptadorAlbum.agregarAlbum(resultado);

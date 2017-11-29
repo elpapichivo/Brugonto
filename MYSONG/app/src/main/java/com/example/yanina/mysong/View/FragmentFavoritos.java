@@ -40,7 +40,7 @@ public class FragmentFavoritos extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         adaptadorDeFavoritos = new AdaptadorDeFavoritos(getContext());
-        controllerCancion.obtenerCancion(new ResultListener<List<Cancion>>() {
+        controllerCancion.obtenerCancionOffline(getContext(), new ResultListener<List<Cancion>>() {
             @Override
             public void finish(List<Cancion> resultado) {
                 adaptadorDeFavoritos.agregarCancion(resultado);
