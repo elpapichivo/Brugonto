@@ -80,7 +80,6 @@ public class ControllerCancion {
     public void setiarLasCancionesFavoritas(Context context, String idCancion) {
         DaoCancion daoCancion = new DaoCancion(context);
         daoCancion.setiarFavoritos(idCancion);
-
     }
 
     public List<Cancion> buscarCancionFavoritas(Context context) {
