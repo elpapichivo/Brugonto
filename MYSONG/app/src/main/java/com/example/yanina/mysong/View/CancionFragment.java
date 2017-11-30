@@ -27,6 +27,7 @@ public class CancionFragment extends Fragment {
     AdaptadorCancion adaptadorCancion;
 
     public static final String CLAVE_ALBUM="claveAlbum";
+    public static final String CLAVE_ID = "idCancion";
 
 
     @Override
@@ -51,6 +52,7 @@ public class CancionFragment extends Fragment {
             public void finish(List<Cancion> resultado) {
                 recyclerView.setAdapter(adaptadorCancion);
                 adaptadorCancion.agregarCancion(resultado);
+
                 adaptadorCancion.notifyDataSetChanged();
 
             }

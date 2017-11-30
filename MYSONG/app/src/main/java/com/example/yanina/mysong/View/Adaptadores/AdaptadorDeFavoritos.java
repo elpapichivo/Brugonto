@@ -78,6 +78,7 @@ public class AdaptadorDeFavoritos extends RecyclerView.Adapter<AdaptadorDeFavori
     }
     public void agregarCancion(List<Cancion>listaDeCanciones){
         listaDeCancionesFavoritas.addAll(listaDeCanciones);
+        notifyDataSetChanged();
     }
 
 }

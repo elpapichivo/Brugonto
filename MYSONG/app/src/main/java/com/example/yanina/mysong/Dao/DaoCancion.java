@@ -29,7 +29,7 @@ public class DaoCancion extends  DataBaseHelper {
     public static final String COLUMNA_ARTISTA="artista";
     public static final String TABLE_NAME="Canciones";
     public static final String COLUMNA_ID="id";
-    public static final String COLUMNA_FAV="false";
+    public static final String COLUMNA_FAV="fav";
 
     private Context context;
 
@@ -102,7 +102,7 @@ public class DaoCancion extends  DataBaseHelper {
         contentValues.put(COLUMNA_ARTISTA, cancion.getArtista().getId());
         contentValues.put(COLUMNA_ID, cancion.getId());
         contentValues.put(COLUMNA_PREVIEW, cancion.getPreview());
-        contentValues.put(COLUMNA_FAV, false);
+        contentValues.put(COLUMNA_FAV, 0);
 
 
         database.insert(TABLE_NAME, null, contentValues);
@@ -157,10 +157,51 @@ public class DaoCancion extends  DataBaseHelper {
         return noticiaList;
     }
 
-    public void buscarFavoritos(){
+    public List<Cancion> buscarFavoritos(){
         SQLiteDatabase database = getReadableDatabase();
 
-        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + "WHILE", null );
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMNA_FAV + " = " + 1, null );
+        List<Cancion> noticiaList = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+
+            String fotoArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_FOTO));
+            String nombreArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_NOMBRE));
+            Integer idArtista = cursor.getInt(cursor.getColumnIndex(DaoArtistas.COLUMNA_ID));
+
+            Artista artista = new Artista(idArtista, nombreArtista, 0, fotoArtista);
+
+
+            String id = cursor.getString(cursor.getColumnIndex(COLUMNA_ID));
+            String preview = cursor.getString(cursor.getColumnIndex(COLUMNA_PREVIEW));
+            String tituloCancion = cursor.getString(cursor.getColumnIndex(COLUMNA_TITULO));
+
+
+            Cancion cancion = new Cancion(tituloCancion, artista, preview, id);
+            noticiaList.add(cancion);
+
+            Toast.makeText(context, cancion.toString(), Toast.LENGTH_LONG).show();
+
+
+        }
+
+
+        cursor.close();
+        database.close();
+
+        return noticiaList;
+    }
+
+    public void setiarFavoritos(String idCancion){
+        SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(COLUMNA_FAV, 1);
+
+        database.update(TABLE_NAME, contentValues, COLUMNA_ID + " = '" + idCancion +"'" , null );
+
+        database.close();
+
     }
 
 }

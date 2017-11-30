@@ -18,11 +18,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String query = "CREATE TABLE "+ DaoCancion.TABLE_NAME +"(" +
-                DaoCancion.COLUMNA_ID + " INTEGER PRIMARY KEY, " +
+                DaoCancion.COLUMNA_ID + " TEXT PRIMARY KEY, " +
                 DaoCancion.COLUMNA_ARTISTA + " INTEGER NOT NULL, " +
                 DaoCancion.COLUMNA_PREVIEW + " TEXT, " +
                 DaoCancion.COLUMNA_TITULO + " TEXT," +
-                DaoCancion.COLUMNA_FAV + " BOOLEAN);";
+                DaoCancion.COLUMNA_FAV + " INTEGER);";
 
         String query2 = "CREATE TABLE "+ DaoArtistas.TABLE_NAME +"(" +
                 DaoArtistas.COLUMNA_ID + " INTEGER PRIMARY KEY, " +

@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.yanina.mysong.Controller.ControllerCancion;
+import com.example.yanina.mysong.Dao.DaoCancion;
 import com.example.yanina.mysong.Model.Artista;
+import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 
 /**
@@ -22,9 +25,11 @@ import com.example.yanina.mysong.R;
 public class FragmentReproductor extends Fragment {
 
     private Artista artista;
+    private Integer id;
     public static final String CLAVE_IMAGEN = "claveImagen";
     public static final String CLAVE_NOMBRE_CANCION = "claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
+    public static final String CLAVE_ID_CANCION = "claveIdCancion";
 
 
     @Override
@@ -37,7 +42,7 @@ public class FragmentReproductor extends Fragment {
         TextView textViewArtista = (TextView) view.findViewById(R.id.reproductorNombreArtista);
         TextView textViewNombreCancion = (TextView) view.findViewById(R.id.reproductorNombreCancion);
 
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
 
         //imageView.setImageResource(bundle.getString(CLAVE_IMAGEN));
         textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
@@ -50,7 +55,10 @@ public class FragmentReproductor extends Fragment {
         botonFavorito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Boton Agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                ControllerCancion controllerCancion =new ControllerCancion();
+                controllerCancion.setiarLasCancionesFavoritas(getContext(), bundle.getString(CLAVE_ID_CANCION) );
+
+
             }
         });
 
@@ -84,14 +92,15 @@ public class FragmentReproductor extends Fragment {
 
 
 
-    public static FragmentReproductor factoryReproducor(String title, Artista artista, String preview) {
+    public static FragmentReproductor factoryReproducor(Cancion cancion) {
 
 
         FragmentReproductor fragmentReproductor = new FragmentReproductor();
         Bundle bundle = new Bundle();
-        bundle.putString(CLAVE_IMAGEN, artista.getFoto());
-        bundle.putString(CLAVE_NOMBRE_ARTISTA, artista.getNombreArtista());
-        bundle.putString(CLAVE_NOMBRE_CANCION, title);
+        bundle.putString(CLAVE_IMAGEN, cancion.getArtista().getFoto());
+        bundle.putString(CLAVE_NOMBRE_ARTISTA, cancion.getArtista().getNombreArtista());
+        bundle.putString(CLAVE_NOMBRE_CANCION, cancion.getTitle());
+        bundle.putString(CLAVE_ID_CANCION, cancion.getId());
         fragmentReproductor.setArguments(bundle);
         return fragmentReproductor;
 
