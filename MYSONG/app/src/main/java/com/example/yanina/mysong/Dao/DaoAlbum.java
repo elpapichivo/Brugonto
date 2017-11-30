@@ -1,6 +1,9 @@
 package com.example.yanina.mysong.Dao;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
 import com.example.yanina.mysong.Model.Album;
@@ -27,6 +30,53 @@ public class DaoAlbum extends DataBaseHelper {
 
     public DaoAlbum(Context context) {
         super(context);
+    }
+
+    public void agregarAlbum (Album album){
+        //Crear una conexion a la base de datos.
+        SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COLUMNA_FOTO, album.getFoto());
+        contentValues.put(COLUMNA_NOMBRE, album.getNombreAlbum());
+        contentValues.put(COLUMNA_ID, album.getId());
+        contentValues.put(COLUMNA_TRACKLIST, album.getTracks());
+
+        database.insert(TABLE_NAME, null, contentValues);
+
+        database.close();
+    }
+
+    public void agregarAlbums (List<Album> albumList){
+        for (Album album : albumList){
+            agregarAlbum(album);
+        }
+    }
+
+    public List<Album> buscarAlbums(){
+        SQLiteDatabase database = getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        List<Album> albumList = new ArrayList<>();
+
+        while (cursor.moveToNext()){
+
+            String nombreAlbum = cursor.getString(cursor.getColumnIndex(COLUMNA_NOMBRE));
+            String foto = cursor.getString(cursor.getColumnIndex(COLUMNA_FOTO));
+            String tracklist = cursor.getString(cursor.getColumnIndex(COLUMNA_TRACKLIST));
+            Integer id = cursor.getInt(cursor.getColumnIndex(COLUMNA_ID));
+
+            Album album = new Album(foto, nombreAlbum, id, tracklist);
+
+            albumList.add(album);
+        }
+
+        cursor.close();
+        database.close();
+
+        return albumList;
     }
 
 

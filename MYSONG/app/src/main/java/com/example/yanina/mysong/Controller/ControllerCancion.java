@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.yanina.mysong.Dao.DaoArtistas;
 import com.example.yanina.mysong.Dao.DaoCancion;
 import com.example.yanina.mysong.Model.Cancion;
+import com.example.yanina.mysong.Utils.HTTPConnectionManager;
 import com.example.yanina.mysong.Utils.ResultListener;
 
 import java.util.List;
@@ -15,49 +16,62 @@ import java.util.List;
 
 public class ControllerCancion {
     public void obtenerCancionOffline(final Context context, final ResultListener<List<Cancion>> listResultListener){
-        DaoCancion daoCancion=new DaoCancion(context);
-        List<Cancion> canciones = daoCancion.buscarCanciones();
-        listResultListener.finish(canciones);
+        if (HTTPConnectionManager.isNetworkingOnline(context)){
+            ResultListener<List<Cancion>> listaDelController= new ResultListener<List<Cancion>>() {
+                @Override
+                public void finish(List<Cancion> resultado) {
+                    DaoCancion daoCancion = new DaoCancion(context);
+                    daoCancion.agregarCanciones(context, resultado);
+
+                    listResultListener.finish(resultado);
+                }
+            };
+            DaoCancion daoCancion = new DaoCancion(context);
+            daoCancion.obtenerCancion(listaDelController);
+        }else {
+            DaoCancion daoCancion=new DaoCancion(context);
+            List<Cancion> canciones = daoCancion.buscarCanciones();
+            listResultListener.finish(canciones);
+        }
     }
 
 
-    public void obtenerCancion(final Context context, final ResultListener<List<Cancion>> listResultListener){
-        ResultListener<List<Cancion>>listaDelController=new ResultListener<List<Cancion>>() {
-            @Override
-            public void finish(List<Cancion> resultado) {
-                DaoCancion daoCancion = new DaoCancion(context);
-                daoCancion.agregarCanciones(context, resultado);
-                listResultListener.finish(resultado);
-            }
-        };
-
-        DaoCancion daoCancion=new DaoCancion(context);
-        daoCancion.obtenerCancion(listaDelController);
+    public void obtenerCancion(final Context context, final ResultListener<List<Cancion>> listResultListener) {
+        if (HTTPConnectionManager.isNetworkingOnline(context)) {
+            ResultListener<List<Cancion>> listaDelController = new ResultListener<List<Cancion>>() {
+                @Override
+                public void finish(List<Cancion> resultado) {
+                    DaoCancion daoCancion = new DaoCancion(context);
+                    daoCancion.agregarCanciones(context, resultado);
+                    listResultListener.finish(resultado);
+                }
+            };
+            DaoCancion daoCancion = new DaoCancion(context);
+            daoCancion.obtenerCancion(listaDelController);
+        } else {
+            DaoCancion daoCancion = new DaoCancion(context);
+            List<Cancion> cancionList= daoCancion.buscarCanciones();
+            listResultListener.finish(cancionList);
+        }
     }
 
 
     public void obtenerCancionPorAlbum(final Context context, final ResultListener<List<Cancion>> listResultListener, Integer idAlbum){
-        ResultListener<List<Cancion>>listaDelController=new ResultListener<List<Cancion>>() {
-            @Override
-            public void finish(List<Cancion> resultado) {
-                DaoCancion daoCancion = new DaoCancion(context);
-                daoCancion.agregarCanciones(context, resultado);
-                listResultListener.finish(resultado);
-            }
-        };
-        DaoCancion daoCancion = new DaoCancion(context);
-        daoCancion.obtenerCancionPorAlbum(listaDelController, idAlbum);
-
+        if (HTTPConnectionManager.isNetworkingOnline(context)){
+            ResultListener<List<Cancion>>listaDelController=new ResultListener<List<Cancion>>() {
+                @Override
+                public void finish(List<Cancion> resultado) {
+                    DaoCancion daoCancion = new DaoCancion(context);
+                    daoCancion.agregarCanciones(context, resultado);
+                    listResultListener.finish(resultado);
+                }
+            };
+            DaoCancion daoCancion=new DaoCancion(context);
+            daoCancion.obtenerCancionPorAlbum(listaDelController, idAlbum);
+        } else {
+            DaoCancion daoCancion = new DaoCancion(context);
+            List<Cancion> cancionList = daoCancion.buscarCanciones();
+            listResultListener.finish(cancionList);
+        }
     }
-
-    public List<Cancion> obtenerCancionesFavoritas(Context context){
-        DaoCancion daoCancion=new DaoCancion(context);
-
-        return daoCancion.buscarFavoritos();
-        }
-        public void setiarLasCancionesFavoritas(Context context, String idCancion){
-            DaoCancion daoCancion= new DaoCancion(context);
-            daoCancion.setiarFavoritos(idCancion);
-        }
-
 }
