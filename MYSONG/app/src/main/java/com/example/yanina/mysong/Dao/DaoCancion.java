@@ -167,9 +167,10 @@ public class DaoCancion extends  DataBaseHelper {
 
             String fotoArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_FOTO));
             String nombreArtista = cursor.getString(cursor.getColumnIndex(DaoArtistas.COLUMNA_NOMBRE));
+            Integer position = cursor.getInt(cursor.getColumnIndex(DaoArtistas.COLUMNA_POSITION));
             Integer idArtista = cursor.getInt(cursor.getColumnIndex(DaoArtistas.COLUMNA_ID));
 
-            Artista artista = new Artista(idArtista, nombreArtista, 0, fotoArtista);
+            Artista artista = new Artista(idArtista, nombreArtista, position, fotoArtista);
 
 
             String id = cursor.getString(cursor.getColumnIndex(COLUMNA_ID));
