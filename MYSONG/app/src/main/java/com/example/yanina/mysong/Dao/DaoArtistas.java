@@ -2,6 +2,7 @@ package com.example.yanina.mysong.Dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
@@ -25,7 +26,8 @@ import java.util.List;
 public class DaoArtistas extends DataBaseHelper {
         public static final String TABLE_NAME="Artistas";
         public static final String COLUMNA_FOTO="foto";
-        public static final String COLUMNA_ID="position";
+        public static final String COLUMNA_ID="id";
+        public static final String COLUMNA_POSITION="position";
         public static final String COLUMNA_NOMBRE="nombreArtista";
 
     public DaoArtistas(Context context) {
@@ -92,6 +94,7 @@ public class DaoArtistas extends DataBaseHelper {
         ContentValues contentValuesArtista = new ContentValues();
         contentValuesArtista.put(COLUMNA_FOTO, artista.getFoto());
         contentValuesArtista.put(COLUMNA_ID, artista.getId());
+        contentValuesArtista.put(COLUMNA_POSITION, artista.getPosition());
         contentValuesArtista.put(COLUMNA_NOMBRE, artista.getNombreArtista());
 
         database.insert(TABLE_NAME, null, contentValuesArtista);
@@ -100,5 +103,34 @@ public class DaoArtistas extends DataBaseHelper {
         database.close();
     }
 
+    public void agregarArtistas (List<Artista> artistaList){
+        for (Artista artista : artistaList){
+            agregarArtista(artista);
+        }
+    }
+
+    public List<Artista> buscarArtistas(){
+        SQLiteDatabase database = getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        List<Artista> artistaList = new ArrayList<>();
+
+        while (cursor.moveToNext()){
+
+            String foto = cursor.getString(cursor.getColumnIndex(COLUMNA_FOTO));
+            Integer id = cursor.getInt(cursor.getColumnIndex(COLUMNA_ID));
+            Integer position = cursor.getInt(cursor.getColumnIndex(COLUMNA_POSITION));
+            String nombre = cursor.getString(cursor.getColumnIndex(COLUMNA_NOMBRE));
+
+            Artista artista = new Artista(id, nombre, position, foto);
+
+            artistaList.add(artista);
+        }
+        cursor.close();
+        database.close();
+
+        return artistaList;
+    }
 
 }

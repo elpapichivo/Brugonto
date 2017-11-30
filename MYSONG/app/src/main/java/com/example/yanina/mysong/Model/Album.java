@@ -16,10 +16,11 @@ public class Album {
     private String tracks;
 
 
-    public Album(String foto, String nombreAlbum, Integer id) {
+    public Album(String foto, String nombreAlbum, Integer id, String tracks) {
         this.foto = foto;
         this.nombreAlbum = nombreAlbum;
         this.id = id;
+        this.tracks = tracks;
     }
 
     public String getFoto() {
@@ -28,6 +29,10 @@ public class Album {
 
     public String getNombreAlbum() {
         return nombreAlbum;
+    }
+
+    public String getTracks() {
+        return tracks;
     }
 
     public Integer getId() {

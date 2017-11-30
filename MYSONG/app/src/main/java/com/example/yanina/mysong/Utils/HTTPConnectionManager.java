@@ -1,5 +1,9 @@
 package com.example.yanina.mysong.Utils;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -62,6 +66,13 @@ public class HTTPConnectionManager {
 		}
 		 
 		return x.toString();
+	}
+
+	public static boolean isNetworkingOnline(Context context){
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeConnection = cm.getActiveNetworkInfo();
+		Boolean isOnline = (activeConnection != null) && activeConnection.isConnected();
+		return isOnline;
 	}
 	
 }
