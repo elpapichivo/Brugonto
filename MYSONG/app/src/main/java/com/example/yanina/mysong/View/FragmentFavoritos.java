@@ -40,7 +40,7 @@ public class FragmentFavoritos extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         adaptadorDeFavoritos = new AdaptadorDeFavoritos(getContext());
-        List<Cancion>cancionListFav= controllerCancion.obtenerCancionesFavoritas(getContext());
+        List<Cancion>cancionListFav= controllerCancion.buscarCancionFavoritas(getContext());
 
 
         adaptadorDeFavoritos.agregarCancion(cancionListFav);

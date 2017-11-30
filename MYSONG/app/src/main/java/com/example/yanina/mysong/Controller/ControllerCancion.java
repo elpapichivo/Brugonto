@@ -15,9 +15,9 @@ import java.util.List;
  */
 
 public class ControllerCancion {
-    public void obtenerCancionOffline(final Context context, final ResultListener<List<Cancion>> listResultListener){
-        if (HTTPConnectionManager.isNetworkingOnline(context)){
-            ResultListener<List<Cancion>> listaDelController= new ResultListener<List<Cancion>>() {
+    public void obtenerCancionOffline(final Context context, final ResultListener<List<Cancion>> listResultListener) {
+        if (HTTPConnectionManager.isNetworkingOnline(context)) {
+            ResultListener<List<Cancion>> listaDelController = new ResultListener<List<Cancion>>() {
                 @Override
                 public void finish(List<Cancion> resultado) {
                     DaoCancion daoCancion = new DaoCancion(context);
@@ -28,8 +28,8 @@ public class ControllerCancion {
             };
             DaoCancion daoCancion = new DaoCancion(context);
             daoCancion.obtenerCancion(listaDelController);
-        }else {
-            DaoCancion daoCancion=new DaoCancion(context);
+        } else {
+            DaoCancion daoCancion = new DaoCancion(context);
             List<Cancion> canciones = daoCancion.buscarCanciones();
             listResultListener.finish(canciones);
         }
@@ -50,15 +50,15 @@ public class ControllerCancion {
             daoCancion.obtenerCancion(listaDelController);
         } else {
             DaoCancion daoCancion = new DaoCancion(context);
-            List<Cancion> cancionList= daoCancion.buscarCanciones();
+            List<Cancion> cancionList = daoCancion.buscarCanciones();
             listResultListener.finish(cancionList);
         }
     }
 
 
-    public void obtenerCancionPorAlbum(final Context context, final ResultListener<List<Cancion>> listResultListener, Integer idAlbum){
-        if (HTTPConnectionManager.isNetworkingOnline(context)){
-            ResultListener<List<Cancion>>listaDelController=new ResultListener<List<Cancion>>() {
+    public void obtenerCancionPorAlbum(final Context context, final ResultListener<List<Cancion>> listResultListener, Integer idAlbum) {
+        if (HTTPConnectionManager.isNetworkingOnline(context)) {
+            ResultListener<List<Cancion>> listaDelController = new ResultListener<List<Cancion>>() {
                 @Override
                 public void finish(List<Cancion> resultado) {
                     DaoCancion daoCancion = new DaoCancion(context);
@@ -66,12 +66,25 @@ public class ControllerCancion {
                     listResultListener.finish(resultado);
                 }
             };
-            DaoCancion daoCancion=new DaoCancion(context);
+            DaoCancion daoCancion = new DaoCancion(context);
             daoCancion.obtenerCancionPorAlbum(listaDelController, idAlbum);
         } else {
             DaoCancion daoCancion = new DaoCancion(context);
             List<Cancion> cancionList = daoCancion.buscarCanciones();
             listResultListener.finish(cancionList);
         }
+    }
+
+
+    public void setiarLasCancionesFavoritas(Context context, String idCancion) {
+        DaoCancion daoCancion = new DaoCancion(context);
+        daoCancion.setiarFavoritos(idCancion);
+
+    }
+
+    public List<Cancion> buscarCancionFavoritas(Context context) {
+        DaoCancion daoCancion = new DaoCancion(context);
+        return daoCancion.buscarFavoritos();
+
     }
 }

@@ -55,6 +55,7 @@ public class CancionFragment extends Fragment {
 
                 adaptadorCancion.notifyDataSetChanged();
 
+
             }
         }, bundle.getInt(CLAVE_ALBUM));
 
