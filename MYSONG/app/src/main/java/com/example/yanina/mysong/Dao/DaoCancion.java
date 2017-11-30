@@ -160,7 +160,10 @@ public class DaoCancion extends  DataBaseHelper {
     public List<Cancion> buscarFavoritos(){
         SQLiteDatabase database = getReadableDatabase();
 
-        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMNA_FAV + " = " + 1, null );
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + ", " + DaoArtistas.TABLE_NAME +
+                " WHERE " + TABLE_NAME + "." + COLUMNA_ARTISTA + " = " + DaoArtistas.TABLE_NAME + "." +  DaoArtistas.COLUMNA_ID +
+                " AND " + COLUMNA_FAV + " = " + 1, null);
+
         List<Cancion> noticiaList = new ArrayList<>();
 
         while(cursor.moveToNext()){
