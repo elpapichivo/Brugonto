@@ -45,11 +45,19 @@ public class ControllerCancion {
                 listResultListener.finish(resultado);
             }
         };
-
-
-        DaoCancion daoCancion=new DaoCancion(context);
+        DaoCancion daoCancion = new DaoCancion(context);
         daoCancion.obtenerCancionPorAlbum(listaDelController, idAlbum);
+
     }
 
+    public List<Cancion> obtenerCancionesFavoritas(Context context){
+        DaoCancion daoCancion=new DaoCancion(context);
+
+        return daoCancion.buscarFavoritos();
+        }
+        public void setiarLasCancionesFavoritas(Context context, String idCancion){
+            DaoCancion daoCancion= new DaoCancion(context);
+            daoCancion.setiarFavoritos(idCancion);
+        }
 
 }

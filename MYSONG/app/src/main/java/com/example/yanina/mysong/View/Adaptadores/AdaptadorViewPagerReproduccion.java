@@ -22,7 +22,7 @@ public class AdaptadorViewPagerReproduccion  extends FragmentPagerAdapter {
         this.listaDeFragmentReproduccion = new ArrayList<>();
 
         for (Cancion cancion: listaDeCanciones){
-            listaDeFragmentReproduccion.add(FragmentReproductor.factoryReproducor(cancion.getTitle(),cancion.getArtista(),cancion.getPreview()));
+            listaDeFragmentReproduccion.add(FragmentReproductor.factoryReproducor(cancion));
 
 
         }
