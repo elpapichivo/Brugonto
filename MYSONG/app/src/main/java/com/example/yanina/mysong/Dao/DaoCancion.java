@@ -145,8 +145,8 @@ public class DaoCancion extends  DataBaseHelper {
             Cancion cancion = new Cancion(tituloCancion, artista, preview, id);
             noticiaList.add(cancion);
 
-            Toast.makeText(context, cancion.toString(), Toast.LENGTH_LONG).show();
 
+           
 
         }
 
