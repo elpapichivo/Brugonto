@@ -61,6 +61,7 @@ public class ControllerCancion {
             ResultListener<List<Cancion>> listaDelController = new ResultListener<List<Cancion>>() {
                 @Override
                 public void finish(List<Cancion> resultado) {
+
                     DaoCancion daoCancion = new DaoCancion(context);
                     daoCancion.agregarCanciones(context, resultado);
                     listResultListener.finish(resultado);

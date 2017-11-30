@@ -99,7 +99,6 @@ public class DaoArtistas extends DataBaseHelper {
 
         database.insert(TABLE_NAME, null, contentValuesArtista);
 
-
         database.close();
     }
 
