@@ -18,8 +18,13 @@ import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.View.Adaptadores.Adaptador;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FacebookAuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos{
+public class MainActivity extends AppCompatActivity implements Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos, LoginFragment.Lisstener{
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -88,6 +93,15 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                 case R.id.favoritos:
                     placeFragment(new FragmentFavoritos());
                     break;
+                case R.id.logout:
+                    LoginManager.getInstance().logOut();
+                    FirebaseAuth.getInstance().signOut();
+                    Menu menuNav = navigationView.getMenu();
+                    MenuItem login = menuNav.findItem(R.id.login);
+                    MenuItem logout = menuNav.findItem(R.id.logout);
+                    login.setVisible(true);
+                    logout.setVisible(false);
+                    break;
                 case R.id.login:
                     placeFragment(new LoginFragment());
                 default:
@@ -95,9 +109,18 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
             }
         }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-
-
+        if (FirebaseAuth.getInstance().getCurrentUser()!=null){
+            Menu menuNav = navigationView.getMenu();
+            MenuItem login = menuNav.findItem(R.id.login);
+            MenuItem logout = menuNav.findItem(R.id.logout);
+            login.setVisible(false);
+            logout.setVisible(true);
+        }
+    }
 
     @Override
     public void enviarInfo(Integer position) {
@@ -108,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
         startActivity(intent);
     }
 
-    private void placeFragment(Fragment fragment){
+    public void placeFragment(Fragment fragment){
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -125,4 +148,23 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
         fragmentContenedorReproduccion.setArguments(bundle);
         placeFragment(fragmentContenedorReproduccion);
 }
+
+    @Override
+    public void updateLogin(FirebaseUser user) {
+        placeFragment(new InicioFragment());
+
+        Menu menuNav = navigationView.getMenu();
+        MenuItem login = menuNav.findItem(R.id.login);
+        MenuItem logout = menuNav.findItem(R.id.logout);
+
+        if (user != null){
+
+            login.setVisible(false);
+            logout.setVisible(true);
+
+        } else {
+            login.setVisible(true);
+            logout.setVisible(false);
+        }
+    }
 }

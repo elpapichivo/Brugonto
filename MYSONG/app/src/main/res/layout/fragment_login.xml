@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:text="Registrate para vivir la experiencia completa y acceder a los beneficios de la comunidad"
         android:padding="20dp"
@@ -89,7 +89,13 @@
     </LinearLayout>
 
 
-
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
 
 
 </LinearLayout>

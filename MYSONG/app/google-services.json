@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "679072393917",
+    "firebase_url": "https://proyecto-integrador-4d233.firebaseio.com",
+    "project_id": "proyecto-integrador-4d233",
+    "storage_bucket": "proyecto-integrador-4d233.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679072393917:android:acbdc0979ba36c52",
+        "android_client_info": {
+          "package_name": "com.example.yanina.mysong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679072393917-4p741ebp51o0tmj3utibqj1pst7ckhhk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yanina.mysong",
+            "certificate_hash": "0beb04c7c0581feeba35d212486f2e016728765c"
+          }
+        },
+        {
+          "client_id": "679072393917-e003rmhlf960fbd6in4oahedfiv5vbo2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr3_5ErEHVWTtECNLZnfSVff1gELndHQ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679072393917-e003rmhlf960fbd6in4oahedfiv5vbo2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
