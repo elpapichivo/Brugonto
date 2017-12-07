@@ -1,6 +1,9 @@
 package com.example.yanina.mysong.View;
 
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,6 +22,12 @@ import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -30,13 +39,16 @@ public class FragmentReproductor extends Fragment {
     public static final String CLAVE_NOMBRE_CANCION = "claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
     public static final String CLAVE_ID_CANCION = "claveIdCancion";
+    public static final String CLAVE_PREVIEW = "clavePreview";
+    MediaPlayer mediaPlayer;
+    int posicion = 0;
     public static final String CLAVE_ID_ALBUM = "claveIdAlbum";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-           View view= inflater.inflate(R.layout.fragment_reproductor, container, false);
+        View view = inflater.inflate(R.layout.fragment_reproductor, container, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.reproductorImagen);
         TextView textViewArtista = (TextView) view.findViewById(R.id.reproductorNombreArtista);
@@ -56,12 +68,24 @@ public class FragmentReproductor extends Fragment {
         botonFavorito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ControllerCancion controllerCancion =new ControllerCancion();
-                controllerCancion.setiarLasCancionesFavoritas(getContext(), bundle.getString(CLAVE_ID_CANCION) );
+                ControllerCancion controllerCancion = new ControllerCancion();
+                controllerCancion.setiarLasCancionesFavoritas(getContext(), bundle.getString(CLAVE_ID_CANCION));
 
 
             }
         });
+        String song = bundle.getString(CLAVE_PREVIEW);
+
+        Uri uri = Uri.parse(song);
+
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = MediaPlayer.create(getContext(), uri);
 
         ImageView botonAnterior = (ImageView) view.findViewById(R.id.anterior);
         botonAnterior.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +99,8 @@ public class FragmentReproductor extends Fragment {
         botonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Boton Play (En construccion)", Toast.LENGTH_SHORT).show();
+                mediaPlayer.start();
+
             }
         });
 
@@ -86,9 +111,30 @@ public class FragmentReproductor extends Fragment {
                 Toast.makeText(getContext(), "Boton Siguiente (En construccion)", Toast.LENGTH_SHORT).show();
             }
         });
-
+        ImageView botonPause= (ImageView) view.findViewById(R.id.pausa);
+        botonPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pausar(v);
+            }
+        });
         return view;
+
+
     }
+
+
+
+
+
+    public void pausar(View v) {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            posicion = mediaPlayer.getCurrentPosition();
+            mediaPlayer.pause();
+        }
+    }
+
+
 
 
 
@@ -102,6 +148,7 @@ public class FragmentReproductor extends Fragment {
         bundle.putString(CLAVE_NOMBRE_ARTISTA, cancion.getArtista().getNombreArtista());
         bundle.putString(CLAVE_NOMBRE_CANCION, cancion.getTitle());
         bundle.putString(CLAVE_ID_CANCION, cancion.getId());
+        bundle.putString(CLAVE_PREVIEW, cancion.getPreview());
         bundle.putInt(CLAVE_ID_ALBUM, cancion.getIdAlbum());
 
         fragmentReproductor.setArguments(bundle);
@@ -116,3 +163,4 @@ public class FragmentReproductor extends Fragment {
 
 
 }
+

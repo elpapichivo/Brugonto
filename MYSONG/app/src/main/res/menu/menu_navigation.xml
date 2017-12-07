@@ -16,6 +16,12 @@
         android:icon="@drawable/login_24dp"
         android:id="@+id/login"/>
 
+    <item
+        android:title="logout"
+        android:icon="@drawable/logout"
+        android:id="@+id/logout"
+        android:visible="false"/>
+
     <!-- Submenu -->
     <item
         android:id="@+id/submenu"

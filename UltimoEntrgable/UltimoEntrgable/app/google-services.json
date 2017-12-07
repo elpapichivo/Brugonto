@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "367753870652",
+    "firebase_url": "https://ivancho-f3775.firebaseio.com",
+    "project_id": "ivancho-f3775",
+    "storage_bucket": "ivancho-f3775.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367753870652:android:28a9a77827b7a673",
+        "android_client_info": {
+          "package_name": "com.digitalhouse.firebaseivanentregable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367753870652-5af7nbcsbqb3m67nd1rm9rlkjopv67gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.digitalhouse.firebaseivanentregable",
+            "certificate_hash": "0beb04c7c0581feeba35d212486f2e016728765c"
+          }
+        },
+        {
+          "client_id": "367753870652-rcfqnil7p0j6g4kdj6kkgk50118n8e31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_6bH07B_dPQjd8gtGbgB--ruEF9mVFu4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367753870652-rcfqnil7p0j6g4kdj6kkgk50118n8e31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
