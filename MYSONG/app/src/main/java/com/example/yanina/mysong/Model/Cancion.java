@@ -14,6 +14,7 @@ public class Cancion {
     private Artista artista;
     private String preview;
     private String id;
+    private Integer idAlbum;
 
     public Cancion(String title, Artista artista, String preview, String id) {
         this.title = title;
@@ -25,6 +26,14 @@ public class Cancion {
     public String getId(){
         return id;
 
+    }
+
+    public Integer getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(Integer idAlbum) {
+        this.idAlbum = idAlbum;
     }
 
     public String getTitle() {

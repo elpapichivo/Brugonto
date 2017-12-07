@@ -9,9 +9,6 @@ import com.example.yanina.mysong.Utils.ResultListener;
 
 import java.util.List;
 
-/**
- * Created by elpapichivo on 20/11/2017.
- */
 
 public class ControllerAlbum {
     public void obtenerAlbumPorArtista(final Context context, final ResultListener<List<Album>> listResultListener, Integer IDartista){

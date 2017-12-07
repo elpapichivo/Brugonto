@@ -17,9 +17,6 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by elpapichivo on 20/11/2017.
- */
 
 public class DaoAlbum extends DataBaseHelper {
     public static final String TABLE_NAME="Albumes";
@@ -52,6 +49,21 @@ public class DaoAlbum extends DataBaseHelper {
         for (Album album : albumList){
             agregarAlbum(album);
         }
+    }
+
+    public String obtenerImagenAlbum(Integer idAlbum){
+        String consulta= "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMNA_ID + "=" + idAlbum;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(consulta,null);
+        String urlIMagen =null;
+
+        if(  cursor.moveToNext()  ){
+            urlIMagen = cursor.getString(cursor.getColumnIndex(COLUMNA_FOTO));
+        }
+        cursor.close();
+        database.close();
+
+        return urlIMagen;
     }
 
     public List<Album> buscarAlbums(){

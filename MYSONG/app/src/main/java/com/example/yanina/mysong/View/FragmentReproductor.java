@@ -30,7 +30,7 @@ public class FragmentReproductor extends Fragment {
     public static final String CLAVE_NOMBRE_CANCION = "claveNombreCancion";
     public static final String CLAVE_NOMBRE_ARTISTA = "claveNombreArtista";
     public static final String CLAVE_ID_CANCION = "claveIdCancion";
-
+    public static final String CLAVE_ID_ALBUM = "claveIdAlbum";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,13 +43,14 @@ public class FragmentReproductor extends Fragment {
         TextView textViewNombreCancion = (TextView) view.findViewById(R.id.reproductorNombreCancion);
 
         final Bundle bundle = getArguments();
-
+        ControllerCancion controllerCancion = new ControllerCancion();
+        String urlFoto = controllerCancion.obtenerImagen(getContext(),bundle.getInt(CLAVE_ID_ALBUM));
         //imageView.setImageResource(bundle.getString(CLAVE_IMAGEN));
         textViewArtista.setText(bundle.getString(CLAVE_NOMBRE_ARTISTA));
         textViewNombreCancion.setText(bundle.getString(CLAVE_NOMBRE_CANCION));
 
         RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error);
-        Glide.with(getContext()).load(bundle.getString(CLAVE_IMAGEN)).apply(requestOptions).into(imageView);
+        Glide.with(getContext()).load(urlFoto).apply(requestOptions).into(imageView);
 
         ImageView botonFavorito = (ImageView) view.findViewById(R.id.agregarFavorito);
         botonFavorito.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +102,8 @@ public class FragmentReproductor extends Fragment {
         bundle.putString(CLAVE_NOMBRE_ARTISTA, cancion.getArtista().getNombreArtista());
         bundle.putString(CLAVE_NOMBRE_CANCION, cancion.getTitle());
         bundle.putString(CLAVE_ID_CANCION, cancion.getId());
+        bundle.putInt(CLAVE_ID_ALBUM, cancion.getIdAlbum());
+
         fragmentReproductor.setArguments(bundle);
         return fragmentReproductor;
 

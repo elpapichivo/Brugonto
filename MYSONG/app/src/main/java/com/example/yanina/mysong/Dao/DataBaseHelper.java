@@ -22,6 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 DaoCancion.COLUMNA_ARTISTA + " INTEGER NOT NULL, " +
                 DaoCancion.COLUMNA_PREVIEW + " TEXT, " +
                 DaoCancion.COLUMNA_TITULO + " TEXT," +
+                DaoCancion.COLUMNA_ID_ALBUM + " INTEGER," +
                 DaoCancion.COLUMNA_FAV + " INTEGER);";
 
         String query2 = "CREATE TABLE "+ DaoArtistas.TABLE_NAME +"(" +

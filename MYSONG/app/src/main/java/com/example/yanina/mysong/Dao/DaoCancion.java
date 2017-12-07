@@ -30,6 +30,7 @@ public class DaoCancion extends  DataBaseHelper {
     public static final String TABLE_NAME="Canciones";
     public static final String COLUMNA_ID="id";
     public static final String COLUMNA_FAV="fav";
+    public static final String COLUMNA_ID_ALBUM ="idalbum" ;
 
     private Context context;
 
