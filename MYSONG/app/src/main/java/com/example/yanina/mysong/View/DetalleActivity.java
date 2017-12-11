@@ -159,6 +159,6 @@ public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum
          FragmentContenedorReproduccion fragmentContenedorReproduccion = new FragmentContenedorReproduccion();
         fragmentContenedorReproduccion.setArguments(bundle);
          placeFragment(fragmentContenedorReproduccion);
-        Toast.makeText(this, posicion.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, posicion.toString(), Toast.LENGTH_SHORT).show();
     }
 }

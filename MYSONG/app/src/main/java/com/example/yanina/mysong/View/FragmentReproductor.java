@@ -1,10 +1,12 @@
 package com.example.yanina.mysong.View;
 
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,10 +72,29 @@ public class FragmentReproductor extends Fragment {
             public void onClick(View v) {
                 ControllerCancion controllerCancion = new ControllerCancion();
                 controllerCancion.setiarLasCancionesFavoritas(getContext(), bundle.getString(CLAVE_ID_CANCION));
-
+                Toast.makeText(getContext(), "Se agrego correctamente", Toast.LENGTH_SHORT).show();
 
             }
         });
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) view.findViewById(R.id.fabShare);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = new Intent();
+
+                shareIntent.setAction(Intent.ACTION_SEND);
+
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "BruGonTo");
+
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Te comparto esta cancion: "+ bundle.getString(CLAVE_NOMBRE_CANCION) + "\n" + bundle.getString(CLAVE_IMAGEN));
+
+                shareIntent.setType("text/html");
+
+                startActivity(Intent.createChooser(shareIntent, "Compartir en:"));
+            }
+        });
+
         String song = bundle.getString(CLAVE_PREVIEW);
 
         Uri uri = Uri.parse(song);

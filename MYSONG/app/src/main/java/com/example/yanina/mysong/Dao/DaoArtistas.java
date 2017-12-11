@@ -89,17 +89,31 @@ public class DaoArtistas extends DataBaseHelper {
     public void agregarArtista(Artista artista) {
         //Crear una conexion a la base de datos.
 
-        SQLiteDatabase database = getWritableDatabase();
+        if (!checkIfExists(artista)) {
+            SQLiteDatabase database = getWritableDatabase();
 
-        ContentValues contentValuesArtista = new ContentValues();
-        contentValuesArtista.put(COLUMNA_FOTO, artista.getFoto());
-        contentValuesArtista.put(COLUMNA_ID, artista.getId());
-        contentValuesArtista.put(COLUMNA_POSITION, artista.getPosition());
-        contentValuesArtista.put(COLUMNA_NOMBRE, artista.getNombreArtista());
+            ContentValues contentValuesArtista = new ContentValues();
+            contentValuesArtista.put(COLUMNA_FOTO, artista.getFoto());
+            contentValuesArtista.put(COLUMNA_ID, artista.getId());
+            contentValuesArtista.put(COLUMNA_POSITION, artista.getPosition());
+            contentValuesArtista.put(COLUMNA_NOMBRE, artista.getNombreArtista());
 
-        database.insert(TABLE_NAME, null, contentValuesArtista);
+            database.insert(TABLE_NAME, null, contentValuesArtista);
 
-        database.close();
+            database.close();
+        }
+    }
+
+    public Boolean checkIfExists(Artista artista){
+        SQLiteDatabase database = getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMNA_ID + "==" + artista.getId(), null);
+
+        if (cursor.moveToNext()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public void agregarArtistas (List<Artista> artistaList){
