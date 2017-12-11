@@ -2,60 +2,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#000000"
     tools:context="com.example.yanina.mysong.View.FragmentReproductor">
 
-    <TextView
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Favoritos"
-        android:textSize="20dp"
-        android:textColor="#f9f5f5"
-        android:gravity="center"
-        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/vinilo_nota"
-        android:id="@+id/reproductorImagen"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabShare"
+            android:src="@drawable/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e7e7e1"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="26dp"
+            android:layout_alignBottom="@+id/reproductorNombreArtista"
+            android:layout_alignEnd="@+id/textViewPrimer" />
 
-    <TextView
-        android:layout_margin="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NOMBRE ARTISTA"
-        android:gravity="center"
-        android:textColor="#f9f3f3"
-        android:id="@+id/reproductorNombreArtista"/>
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Favoritos"
+            android:textSize="20dp"
+            android:textColor="#f9f5f5"
+            android:gravity="center"
+            android:id="@+id/textViewPrimer"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nombre cancion"
-        android:gravity="center"
-        android:textColor="#f1eeee"
-        android:id="@+id/reproductorNombreCancion"/>
 
-    <ImageView
-        android:id="@+id/agregarFavorito"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_playlist_add_black_24dp"
-        android:onClick="agregarFavorito"
-        />
+        <ImageView
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vinilo_nota"
+            android:id="@+id/reproductorImagen"
+            android:layout_below="@id/textViewPrimer"
+            android:layout_centerHorizontal="true" />
 
+        <TextView
+            android:layout_margin="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE ARTISTA"
+            android:gravity="center"
+            android:textColor="#f9f3f3"
+            android:id="@+id/reproductorNombreArtista"
+            android:layout_below="@id/reproductorImagen"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="nombre cancion"
+            android:gravity="center"
+            android:textColor="#f1eeee"
+            android:id="@+id/reproductorNombreCancion"
+            android:layout_below="@id/reproductorNombreArtista"/>
+
+        <ImageView
+            android:id="@+id/agregarFavorito"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_playlist_add_black_24dp"
+            android:onClick="agregarFavorito"
+            android:layout_below="@id/reproductorNombreCancion"
+            />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-  >
+        >
 
 
 
@@ -96,7 +124,6 @@
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>
