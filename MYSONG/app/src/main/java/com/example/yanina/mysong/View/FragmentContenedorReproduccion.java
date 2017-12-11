@@ -55,14 +55,9 @@ public class FragmentContenedorReproduccion extends Fragment {
     }
 
     public void cargarFavorito(){
-        controllerCancion.obtenerCancion(getContext(), new ResultListener<List<Cancion>>() {
-            @Override
-            public void finish(List<Cancion> resultado) {
-                AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),resultado);
-                viewPager.setAdapter(adaptadorViewPager);
-                viewPager.setCurrentItem(bundle.getInt(CLAVE_POSITION2));
-            }
-        });
+        AdaptadorViewPagerReproduccion adaptadorViewPager=new AdaptadorViewPagerReproduccion(getChildFragmentManager(),  controllerCancion.buscarCancionFavoritas(getContext()));
+        viewPager.setAdapter(adaptadorViewPager);
+        viewPager.setCurrentItem(bundle.getInt(CLAVE_POSITION2));
     }
 
     public void cargarAlbum(Integer claveAlbum){

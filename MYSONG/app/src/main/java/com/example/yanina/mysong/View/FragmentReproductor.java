@@ -72,7 +72,7 @@ public class FragmentReproductor extends Fragment {
             public void onClick(View v) {
                 ControllerCancion controllerCancion = new ControllerCancion();
                 controllerCancion.setiarLasCancionesFavoritas(getContext(), bundle.getString(CLAVE_ID_CANCION));
-
+                Toast.makeText(getContext(), "Se agrego correctamente", Toast.LENGTH_SHORT).show();
 
             }
         });

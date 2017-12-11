@@ -103,6 +103,7 @@ public class DaoCancion extends  DataBaseHelper {
         contentValues.put(COLUMNA_ARTISTA, cancion.getArtista().getId());
         contentValues.put(COLUMNA_ID, cancion.getId());
         contentValues.put(COLUMNA_PREVIEW, cancion.getPreview());
+        contentValues.put(COLUMNA_ID_ALBUM, cancion.getIdAlbum());
         contentValues.put(COLUMNA_FAV, 0);
 
 
@@ -180,12 +181,14 @@ public class DaoCancion extends  DataBaseHelper {
             String id = cursor.getString(cursor.getColumnIndex(COLUMNA_ID));
             String preview = cursor.getString(cursor.getColumnIndex(COLUMNA_PREVIEW));
             String tituloCancion = cursor.getString(cursor.getColumnIndex(COLUMNA_TITULO));
+            Integer idAlbum = cursor.getInt(cursor.getColumnIndex(COLUMNA_ID_ALBUM));
 
 
             Cancion cancion = new Cancion(tituloCancion, artista, preview, id);
+            cancion.setIdAlbum(idAlbum);
             noticiaList.add(cancion);
 
-            Toast.makeText(context, cancion.toString(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, cancion.toString(), Toast.LENGTH_LONG).show();
 
 
         }
