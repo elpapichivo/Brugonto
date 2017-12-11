@@ -15,6 +15,7 @@ import com.example.yanina.mysong.R;
 import com.example.yanina.mysong.Utils.ResultListener;
 import com.example.yanina.mysong.View.Adaptadores.Adaptador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,8 +29,6 @@ public class FragmentLista extends Fragment {
 
         ControllerArtista controllerArtista=new ControllerArtista();
 
-
-
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewArtista);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
@@ -41,7 +40,6 @@ public class FragmentLista extends Fragment {
             public void finish(List<Artista> resultado) {
                 adapterRecycler.agregarMusica(resultado);
                 adapterRecycler.notifyDataSetChanged();
-
             }
         });
 
@@ -49,6 +47,7 @@ public class FragmentLista extends Fragment {
 
         return view;
     }
+
 
 
 }

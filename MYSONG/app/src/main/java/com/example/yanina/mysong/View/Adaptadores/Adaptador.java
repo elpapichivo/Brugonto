@@ -91,8 +91,6 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
             imageViewPelicula = (ImageView) itemView.findViewById(R.id.celda_lista_imagen);
             textViewNombre = (TextView) itemView.findViewById(R.id.celda_lista_nombre_artista);
 
-
-
         }
 
         public void bindArtista(Artista artista, Context context){

@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.yanina.mysong.Model.Cancion;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.miToolbar);
         setSupportActionBar(toolbar);
+
+
 
         placeFragment(new InicioFragment());
 
@@ -167,4 +171,6 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
             logout.setVisible(false);
         }
     }
+
+
 }

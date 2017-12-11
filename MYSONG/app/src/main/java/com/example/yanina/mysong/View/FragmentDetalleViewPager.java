@@ -29,15 +29,11 @@ public class FragmentDetalleViewPager extends Fragment {
 
     AdaptadorAlbum adaptadorAlbum;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_detalle, container, false);
-
-
 
         final ViewPager viewPager=(ViewPager) view.findViewById(R.id.viewPager);
 
@@ -53,10 +49,8 @@ public class FragmentDetalleViewPager extends Fragment {
                 AdaptadorViewPager adaptadorViewPager=new AdaptadorViewPager(getChildFragmentManager(),resultado);
                 viewPager.setAdapter(adaptadorViewPager);
                 viewPager.setCurrentItem(position);
-           }
+            }
         });
-
-
 
 
         return view;

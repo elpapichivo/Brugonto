@@ -39,7 +39,6 @@ public class DaoAlbum extends DataBaseHelper {
         contentValues.put(COLUMNA_NOMBRE, album.getNombreAlbum());
         contentValues.put(COLUMNA_ID, album.getId());
         contentValues.put(COLUMNA_TRACKLIST, album.getTracks());
-
         database.insert(TABLE_NAME, null, contentValues);
 
         database.close();

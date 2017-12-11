@@ -36,6 +36,27 @@ public class ControllerArtista {
 
     }
 
+    public void obtenerArtistaNombre(final Context context, String query, final ResultListener<List<Artista>> listResultListener){
+        if (HTTPConnectionManager.isNetworkingOnline(context)){
+            ResultListener <List<Artista>>listaDelController = new ResultListener<List<Artista>>() {
+                @Override
+                public void finish(List<Artista> resultado) {
+//                    DaoArtistas daoArtistas = new DaoArtistas(context);
+//                    daoArtistas.agregarArtistas(resultado);
+
+                    listResultListener.finish(resultado);
+                }
+            };
+            DaoArtistas daoArtistas = new DaoArtistas(context);
+            daoArtistas.obtenerArtistaNombre(query, listaDelController);
+        }else {
+//            DaoArtistas daoArtistas = new DaoArtistas(context);
+//            List<Artista> artistaList = daoArtistas.buscarArtistas();
+//            listResultListener.finish(artistaList);
+        }
+
+    }
+
     public void obtenerArtistaPorId(final Context context, final ResultListener<List<Artista>> listResultListener, Integer idArtista){
         if (HTTPConnectionManager.isNetworkingOnline(context)){
             ResultListener <List<Artista>>listaDelController = new ResultListener<List<Artista>>() {

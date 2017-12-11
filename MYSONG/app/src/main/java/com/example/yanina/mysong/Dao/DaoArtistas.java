@@ -40,6 +40,11 @@ public class DaoArtistas extends DataBaseHelper {
         tareaAsincrona.execute(DeezerHelper.chartArtistsPorGenero(0));
     }
 
+    public void obtenerArtistaNombre(String query, ResultListener<List<Artista>> listaDelController){
+        TareaAsincrona tareaAsincrona=new TareaAsincrona(listaDelController);
+        tareaAsincrona.execute(DeezerHelper.searchArtist(query));
+    }
+
     public void obtenerArtistaPorId(ResultListener<List<Artista>> listaDelController, Integer idArtista){
         TareaAsincrona tareaAsincrona=new TareaAsincrona(listaDelController);
         tareaAsincrona.execute(DeezerHelper.artistPorId(idArtista));
