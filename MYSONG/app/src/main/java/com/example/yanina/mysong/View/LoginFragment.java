@@ -94,6 +94,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onCancel() {
+
                 Toast.makeText(getContext(), "onCancel", Toast.LENGTH_SHORT).show();
             }
 

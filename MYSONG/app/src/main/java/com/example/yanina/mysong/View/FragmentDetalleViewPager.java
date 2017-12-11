@@ -21,10 +21,6 @@ import com.example.yanina.mysong.View.Adaptadores.AdaptadorViewPager;
 
 import java.util.List;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentDetalleViewPager extends Fragment {
 
     private List<Artista>artistaList;
