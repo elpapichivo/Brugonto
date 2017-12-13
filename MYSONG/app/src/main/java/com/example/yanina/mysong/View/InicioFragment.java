@@ -54,7 +54,9 @@ public class InicioFragment extends Fragment {
             }
         });
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewBuscar);
-
+        adapterRecycler = new Adaptador(getContext(),"");
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(adapterRecycler);
         return view;
     }
 
@@ -67,13 +69,14 @@ public class InicioFragment extends Fragment {
         controllerArtista.obtenerArtistaNombre(getContext(), charSequence.toString(), new ResultListener<List<Artista>>() {
             @Override
             public void finish(List<Artista> resultado) {
+                if (resultado!=null) {
 
-                adapterRecycler = new Adaptador(getContext(),charSequence.toString());
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-                recyclerView.setAdapter(adapterRecycler);
-                adapterRecycler.setListaDeArtistas(resultado);
+                    adapterRecycler = new Adaptador(getContext(), charSequence.toString());
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                    recyclerView.setAdapter(adapterRecycler);
+                    adapterRecycler.setListaDeArtistas(resultado);
 
-
+                }
 
 
             }
