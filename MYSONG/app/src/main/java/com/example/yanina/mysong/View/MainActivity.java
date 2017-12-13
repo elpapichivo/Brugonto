@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
     @Override
     public void updateLogin(FirebaseUser user) {
-        placeFragment(new InicioFragment());
+        placeFragment(new FragmentLista());
 
         Menu menuNav = navigationView.getMenu();
         MenuItem login = menuNav.findItem(R.id.login);

@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="60dp"
-        android:src="@drawable/icono_musica"/>
+        android:src="@drawable/brugonto"/>
 
 
 

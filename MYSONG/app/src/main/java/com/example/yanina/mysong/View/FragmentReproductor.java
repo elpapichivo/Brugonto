@@ -23,6 +23,7 @@ import com.example.yanina.mysong.Dao.DaoCancion;
 import com.example.yanina.mysong.Model.Artista;
 import com.example.yanina.mysong.Model.Cancion;
 import com.example.yanina.mysong.R;
+import com.example.yanina.mysong.Utils.HTTPConnectionManager;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -97,6 +98,10 @@ public class FragmentReproductor extends Fragment {
 
         String song = bundle.getString(CLAVE_PREVIEW);
 
+        if (HTTPConnectionManager.isNetworkingOnline(getContext())){
+
+
+
         Uri uri = Uri.parse(song);
 
         if (mediaPlayer != null) {
@@ -108,13 +113,13 @@ public class FragmentReproductor extends Fragment {
         }
         mediaPlayer = MediaPlayer.create(getContext(), uri);
 
-        ImageView botonAnterior = (ImageView) view.findViewById(R.id.anterior);
+        /*ImageView botonAnterior = (ImageView) view.findViewById(R.id.anterior);
         botonAnterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Boton Anterior (En construccion)", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         ImageView botonPlay = (ImageView) view.findViewById(R.id.play);
         botonPlay.setOnClickListener(new View.OnClickListener() {
@@ -125,20 +130,21 @@ public class FragmentReproductor extends Fragment {
             }
         });
 
-        ImageView botonSiguiente = (ImageView) view.findViewById(R.id.siguiente);
+        /*ImageView botonSiguiente = (ImageView) view.findViewById(R.id.siguiente);
         botonSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Boton Siguiente (En construccion)", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
+
         ImageView botonPause= (ImageView) view.findViewById(R.id.pausa);
         botonPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pausar(v);
             }
-        });
+        }); }
         return view;
 
 

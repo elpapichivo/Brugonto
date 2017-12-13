@@ -29,7 +29,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Favoritos"
+            android:text=""
             android:textSize="20dp"
             android:textColor="#f9f5f5"
             android:gravity="center"
@@ -72,7 +72,6 @@
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:src="@drawable/favoritoreproductor"
-            android:onClick="agregarFavorito"
             android:layout_below="@id/reproductorNombreCancion"
             />
 
@@ -86,26 +85,13 @@
         >
 
 
-
-
-
-        <ImageView
-            android:id="@+id/anterior"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_skip_previous_black_24dp"
-            android:onClick="anterior"
-            />
-
-
         <ImageView
             android:id="@+id/play"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_below="@id/anterior"
             android:layout_marginLeft="10dp"
             android:src="@drawable/ic_play_arrow_black_24dp"
-            android:onClick="play"/>
+           />
 
         <ImageView
             android:layout_width="50dp"
@@ -113,14 +99,6 @@
             android:src="@drawable/ic_pause_black_24dp"
             android:id="@+id/pausa"/>
 
-        <ImageView
-            android:id="@+id/siguiente"
-            android:layout_marginLeft="20dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_skip_next_black_24dp"
-            android:onClick="seguiente"
-            />
 
 
     </LinearLayout>
