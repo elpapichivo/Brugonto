@@ -7,17 +7,10 @@
     android:background="#000000"
     tools:context="com.example.yanina.mysong.View.DetalleActivity">
 
-    <TextView
-        android:paddingTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido a"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textStyle="italic"
-        android:textColor="#f2f2f7"/>
+
 
     <TextView
+        android:paddingTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BruGonTo"

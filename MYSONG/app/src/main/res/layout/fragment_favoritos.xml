@@ -10,7 +10,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reproduccion Aleatoria"
+        android:text="Lista de Favoritos"
         android:background="#040150"
         android:textColor="#f7f4f4"/>
 

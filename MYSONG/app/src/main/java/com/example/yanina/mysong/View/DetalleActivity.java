@@ -21,6 +21,8 @@ import com.example.yanina.mysong.View.Adaptadores.Adaptador;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorCancion;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorDeFavoritos;
 import com.example.yanina.mysong.View.Adaptadores.AdaptadorAlbum;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum.ComunicadorAlbumes, Adaptador.Comunicador, AdaptadorDeFavoritos.ComunicadorFavoritos, AdaptadorCancion.ComunicadorCancion{
 
@@ -100,8 +102,20 @@ public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum
                 //Le paso al metodo que pone los fragment un nuevo fragment
                 Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.buscar:
+                placeFragment(new InicioFragment());
+                break;
             case R.id.favoritos:
                 placeFragment(new FragmentFavoritos());
+                break;
+            case R.id.logout:
+                LoginManager.getInstance().logOut();
+                FirebaseAuth.getInstance().signOut();
+                Menu menuNav = navigationView.getMenu();
+                MenuItem login = menuNav.findItem(R.id.login);
+                MenuItem logout = menuNav.findItem(R.id.logout);
+                login.setVisible(true);
+                logout.setVisible(false);
                 break;
             case R.id.login:
                 placeFragment(new LoginFragment());

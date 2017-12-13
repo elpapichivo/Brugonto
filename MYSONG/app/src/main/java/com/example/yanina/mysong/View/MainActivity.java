@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
 
 
 
-        placeFragment(new InicioFragment());
+        placeFragment(new FragmentLista());
 
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayoutMain);
         navigationView = (NavigationView) findViewById(R.id.navigationViewMain);
@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                     break;
                 case R.id.favoritos:
                     placeFragment(new FragmentFavoritos());
+                    break;
+                case R.id.buscar:
+                    placeFragment(new InicioFragment());
                     break;
                 case R.id.logout:
                     LoginManager.getInstance().logOut();
