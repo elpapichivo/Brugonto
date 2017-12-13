@@ -71,7 +71,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_playlist_add_black_24dp"
+            android:src="@drawable/favoritoreproductor"
             android:onClick="agregarFavorito"
             android:layout_below="@id/reproductorNombreCancion"
             />

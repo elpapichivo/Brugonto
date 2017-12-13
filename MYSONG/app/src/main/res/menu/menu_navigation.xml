@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="artista"
+    <item android:title="Artista"
         android:id="@+id/iconoArtista"
         android:icon="@drawable/ic_person_black_24dp"/>
 
     <item
-        android:title="favoritos"
+        android:title="Favoritos"
         android:icon="@drawable/favorito_24dp"
         android:id="@+id/favoritos"/>
 
+    <item
+        android:title="Buscar"
+        android:icon="@drawable/buscar"
+        android:id="@+id/buscar"/>
 
     <item
-        android:title="login"
+        android:title="Login"
         android:icon="@drawable/login_24dp"
         android:id="@+id/login"/>
 
     <item
-        android:title="logout"
+        android:title="Logout"
         android:icon="@drawable/logout"
         android:id="@+id/logout"
         android:visible="false"/>
+
 
     <!-- Submenu -->
     <item
         android:id="@+id/submenu"
         android:title="Submenu">
         <menu>
-            <item android:title="configuracion"
+            <item android:title="Configuracion"
                 android:id="@+id/itemConfiguracion"
                 android:icon="@drawable/ic_build_black_24dp"/>
 
