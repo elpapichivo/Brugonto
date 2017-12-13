@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "679072393917-1o5dk0eu5076trpq6uf0ag41i0etnicg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yanina.mysong",
+            "certificate_hash": "5af1d893cd37a5f2737296d492ac48b8d2ffca83"
+          }
+        },
+        {
           "client_id": "679072393917-4p741ebp51o0tmj3utibqj1pst7ckhhk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -135,6 +135,17 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
         startActivity(intent);
     }
 
+    @Override
+    public void enviarInfo(Integer position, String busqueda) {
+        Toast.makeText(this, "main", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, DetalleActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt(FragmentDetalleViewPager.CLAVE_POSITION, position);
+        bundle.putString(FragmentDetalleViewPager.CLAVE_BUSQUEDA, busqueda);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     public void placeFragment(Fragment fragment){
 
         FragmentManager manager = getSupportFragmentManager();
