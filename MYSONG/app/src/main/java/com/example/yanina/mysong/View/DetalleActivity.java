@@ -129,6 +129,16 @@ public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum
     }
 
     @Override
+    public void enviarInfo(Integer position, String busqueda) {
+        Intent intent = new Intent(this, DetalleActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt(FragmentDetalleViewPager.CLAVE_POSITION, position);
+        bundle.putString(FragmentDetalleViewPager.CLAVE_BUSQUEDA, busqueda);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    @Override
     public void enviarinfo(Integer position) {
         Bundle bundle = new Bundle();
         bundle.putInt(FragmentContenedorReproduccion.CLAVE_POSITION2,position);

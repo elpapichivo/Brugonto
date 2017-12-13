@@ -68,7 +68,7 @@ public class InicioFragment extends Fragment {
             @Override
             public void finish(List<Artista> resultado) {
 
-                adapterRecycler = new Adaptador(getContext());
+                adapterRecycler = new Adaptador(getContext(),charSequence.toString());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
                 recyclerView.setAdapter(adapterRecycler);
                 adapterRecycler.setListaDeArtistas(resultado);

@@ -44,7 +44,7 @@ public class DetalleFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putString(CLAVE_IMAGEN, imagen);
             bundle.putString(CLAVE_NOMBRE_ARTISTA, artista);
-            bundle.putInt(CLAVE_NOMBRE_CANCION, cancion);
+            //bundle.putInt(CLAVE_NOMBRE_CANCION, cancion);
             bundle.putInt(CLAVE_ARISTA, id);
             detalleFragment.setArguments(bundle);
             return detalleFragment;

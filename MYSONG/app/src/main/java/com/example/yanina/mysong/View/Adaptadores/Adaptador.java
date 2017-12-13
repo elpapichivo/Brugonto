@@ -28,9 +28,17 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     private Context context;
     private List<Artista> listaDeArtistas;
     private Comunicador comunicadorClick;
+    private String busqueda;
 
     public Adaptador(Context context) {
         this.context = context;
+        this.listaDeArtistas = new ArrayList<>();
+        comunicadorClick = (Comunicador) context;
+    }
+
+    public Adaptador(Context context, String busqueda) {
+        this.context = context;
+        this.busqueda = busqueda;
         this.listaDeArtistas = new ArrayList<>();
         comunicadorClick = (Comunicador) context;
     }
@@ -64,7 +72,11 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comunicadorClick.enviarInfo(position);
+                if(busqueda == null) {
+                    comunicadorClick.enviarInfo(position);
+                }else{
+                    comunicadorClick.enviarInfo(position,busqueda);
+                }
             }
         });
 
@@ -110,6 +122,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ArtistaViewHolder>
     public interface Comunicador{
         //Creo un método para enviar la informacion
         public void enviarInfo(Integer position);
+        public void enviarInfo(Integer position, String busqueda);
     }
 
     public void agregarMusica(List<Artista>listaArtistas){
