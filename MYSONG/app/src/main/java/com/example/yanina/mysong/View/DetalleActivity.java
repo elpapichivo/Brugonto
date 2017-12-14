@@ -98,10 +98,6 @@ public class DetalleActivity extends AppCompatActivity implements AdaptadorAlbum
                 //Le paso al metodo que pone los fragment un nuevo fragment
                 placeFragment(new FragmentLista());
                 break;
-            case R.id.itemConfiguracion:
-                //Le paso al metodo que pone los fragment un nuevo fragment
-                Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.buscar:
                 placeFragment(new InicioFragment());
                 break;

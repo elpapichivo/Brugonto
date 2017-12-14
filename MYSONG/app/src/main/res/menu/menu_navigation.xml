@@ -28,16 +28,16 @@
 
 
     <!-- Submenu -->
-    <item
-        android:id="@+id/submenu"
-        android:title="Submenu">
-        <menu>
-            <item android:title="Configuracion"
-                android:id="@+id/itemConfiguracion"
-                android:icon="@drawable/ic_build_black_24dp"/>
+    <!--<item-->
+        <!--android:id="@+id/submenu"-->
+        <!--android:title="Submenu">-->
+        <!--<menu>-->
+            <!--<item android:title="Configuracion"-->
+                <!--android:id="@+id/itemConfiguracion"-->
+                <!--android:icon="@drawable/ic_build_black_24dp"/>-->
 
-        </menu>
-    </item>
+        <!--</menu>-->
+    <!--</item>-->
 
 
 

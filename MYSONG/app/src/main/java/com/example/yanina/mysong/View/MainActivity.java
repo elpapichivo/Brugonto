@@ -90,10 +90,6 @@ public class MainActivity extends AppCompatActivity implements Adaptador.Comunic
                     //Le paso al metodo que pone los fragment un nuevo fragment
                     placeFragment(new FragmentLista());
                     break;
-                case R.id.itemConfiguracion:
-                    //Le paso al metodo que pone los fragment un nuevo fragment
-                    Toast.makeText(this, "En construccion", Toast.LENGTH_SHORT).show();
-                    break;
                 case R.id.favoritos:
                     placeFragment(new FragmentFavoritos());
                     break;
