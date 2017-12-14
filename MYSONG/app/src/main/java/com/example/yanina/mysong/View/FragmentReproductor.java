@@ -182,7 +182,7 @@ public class FragmentReproductor extends Fragment {
         return fragmentReproductor;
 
     }
-
+     
   //  public void agregarFavorito(View view){
   //      ImageView  agregar = ImageView view.findViewById(R.id.artistaFavorito);
 
