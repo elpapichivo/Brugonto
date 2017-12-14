@@ -15,81 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:text="Registrate para vivir la experiencia completa y acceder a los beneficios de la comunidad"
-        android:padding="20dp"
+        android:text="Logeate con Facebook para vivir la experiencia completa y acceder a los beneficios de la comunidad"
+        android:padding="30dp"
+
         />
 
 
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/TextImputMail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        >
-
-        <EditText
-            android:id="@+id/EditTextMail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="E-Mail"
-            android:inputType="textEmailSubject"
-            />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/TextImputContrasenia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        >
-
-        <EditText
-            android:id="@+id/EditTextContrasenia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            />
-
-
-
-    </android.support.design.widget.TextInputLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/ButtonIngresar"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Ingresar"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            />
-
-        <Button
-            android:id="@+id/ButtonRegistrarse"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Registrarse"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            />
-
-    </LinearLayout>
-
-
     <com.facebook.login.widget.LoginButton
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

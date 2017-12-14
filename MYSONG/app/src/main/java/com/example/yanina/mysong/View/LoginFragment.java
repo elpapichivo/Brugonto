@@ -57,22 +57,22 @@ public class LoginFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        Button botonIngresar = (Button) view.findViewById(R.id.ButtonIngresar);
-        botonIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Boton Ingresar (En construccion)", Toast.LENGTH_SHORT).show();
-                contrasenia();
-            }
-        });
-
-        Button botonRegistrarse = (Button) view.findViewById(R.id.ButtonRegistrarse);
-        botonRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Boton Registrarse (En construccion)", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        Button botonIngresar = (Button) view.findViewById(R.id.ButtonIngresar);
+//        botonIngresar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Boton Ingresar (En construccion)", Toast.LENGTH_SHORT).show();
+//                contrasenia();
+//            }
+//        });
+//
+//        Button botonRegistrarse = (Button) view.findViewById(R.id.ButtonRegistrarse);
+//        botonRegistrarse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Boton Registrarse (En construccion)", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -107,21 +107,21 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-    public void contrasenia (){
-
-        TextInputLayout editTextContrasenia;
-        editTextContrasenia = (TextInputLayout) view.findViewById(R.id.TextImputContrasenia);
-
-        EditText editText = (EditText) view.findViewById(R.id.EditTextContrasenia);
-
-        String contrasenia = editText.getText().toString();
-
-        if (contrasenia.length()<8){
-            editTextContrasenia.setError("La contraseña debe contener como minimo 8 caracteres");
-        }else {
-            editTextContrasenia.setError(null);
-        }
-    }
+//    public void contrasenia (){
+//
+//        TextInputLayout editTextContrasenia;
+//        editTextContrasenia = (TextInputLayout) view.findViewById(R.id.TextImputContrasenia);
+//
+//        EditText editText = (EditText) view.findViewById(R.id.EditTextContrasenia);
+//
+//        String contrasenia = editText.getText().toString();
+//
+//        if (contrasenia.length()<8){
+//            editTextContrasenia.setError("La contraseña debe contener como minimo 8 caracteres");
+//        }else {
+//            editTextContrasenia.setError(null);
+//        }
+//    }
 
 
     @Override
